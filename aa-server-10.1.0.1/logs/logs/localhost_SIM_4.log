@@ -1,0 +1,155 @@
+11/11 22:04:00 FINE sim.Admin|Log for simulation 4 started
+************************************************************
+* Log for simulation 4 started
+************************************************************
+
+
+11/11 22:04:00 INFO sim.TACAASimulation|TACAA Simulation 4 is setting up...
+11/11 22:04:00 INFO sim.TACAASimulation|Created 1 users
+11/11 22:04:00 INFO sim.TACAASimulation|Created 1 publishers
+11/11 22:04:00 FINE sim.ExternalAgent|agentorange setup with address adv1
+11/11 22:04:00 FINE DummyAdvertiser.Dummy|dummy Dummy simulationSetup
+11/11 22:04:00 FINE DummyAdvertiser.Dummy-2|dummy Dummy-2 simulationSetup
+11/11 22:04:00 FINE DummyAdvertiser.Dummy-3|dummy Dummy-3 simulationSetup
+11/11 22:04:00 FINE DummyAdvertiser.Dummy-4|dummy Dummy-4 simulationSetup
+11/11 22:04:00 FINE DummyAdvertiser.Dummy-5|dummy Dummy-5 simulationSetup
+11/11 22:04:00 FINE DummyAdvertiser.Dummy-6|dummy Dummy-6 simulationSetup
+11/11 22:04:00 FINE DummyAdvertiser.Dummy-7|dummy Dummy-7 simulationSetup
+11/11 22:04:00 INFO sim.TACAASimulation|Using random capacity assigments
+11/11 22:04:00 INFO auction.QueryReportManagerImpl|QueryReportManager reset
+11/11 22:04:00 INFO sim.Simulation|***** START OF TIME 0 *****
+11/11 22:04:00 INFO sim.Simulation|***** START OF TIME 0 COMPLETE *****
+11/11 22:04:00 INFO sim.MessageDispatcher|Message dispatcher sim3 IS BEING GARBAGED
+11/11 22:04:10 INFO sim.Simulation|***** START OF TIME 1 *****
+11/11 22:04:10 INFO sim.Simulation|***** START OF TIME 1 COMPLETE *****
+11/11 22:04:20 INFO sim.Simulation|***** START OF TIME 2 *****
+11/11 22:04:20 INFO sim.Simulation|***** START OF TIME 2 COMPLETE *****
+11/11 22:04:30 INFO sim.Simulation|***** START OF TIME 3 *****
+11/11 22:04:30 INFO sim.Simulation|***** START OF TIME 3 COMPLETE *****
+11/11 22:04:40 INFO sim.Simulation|***** START OF TIME 4 *****
+11/11 22:04:40 INFO sim.Simulation|***** START OF TIME 4 COMPLETE *****
+11/11 22:04:50 INFO sim.Simulation|***** START OF TIME 5 *****
+11/11 22:04:50 INFO sim.Simulation|***** START OF TIME 5 COMPLETE *****
+11/11 22:04:59 SEVERE tact.TACTConnection|tact-2: closed from other side
+11/11 22:04:59 SEVERE tact.TACTConnection|agentorange@tact-1: closed from other side
+11/11 22:04:59 SEVERE tact.TACTConnection|tact-3: closed from other side
+11/11 22:05:00 INFO sim.Simulation|***** START OF TIME 6 *****
+11/11 22:05:01 INFO sim.Simulation|***** START OF TIME 6 COMPLETE *****
+11/11 22:05:10 INFO sim.Simulation|***** START OF TIME 7 *****
+11/11 22:05:11 INFO sim.Simulation|***** START OF TIME 7 COMPLETE *****
+11/11 22:05:12 SEVERE tact.TACTConnection|agentorange@viewer-1: closed from other side
+11/11 22:05:20 INFO sim.Simulation|***** START OF TIME 8 *****
+11/11 22:05:20 INFO sim.Simulation|***** START OF TIME 8 COMPLETE *****
+11/11 22:05:30 INFO sim.Simulation|***** START OF TIME 9 *****
+11/11 22:05:30 INFO sim.Simulation|***** START OF TIME 9 COMPLETE *****
+11/11 22:05:40 INFO sim.Simulation|***** START OF TIME 10 *****
+11/11 22:05:40 INFO sim.Simulation|***** START OF TIME 10 COMPLETE *****
+11/11 22:05:50 INFO sim.Simulation|***** START OF TIME 11 *****
+11/11 22:05:50 INFO sim.Simulation|***** START OF TIME 11 COMPLETE *****
+11/11 22:06:00 INFO sim.Simulation|***** START OF TIME 12 *****
+11/11 22:06:00 INFO sim.Simulation|***** START OF TIME 12 COMPLETE *****
+11/11 22:06:10 INFO sim.Simulation|***** START OF TIME 13 *****
+11/11 22:06:10 INFO sim.Simulation|***** START OF TIME 13 COMPLETE *****
+11/11 22:06:20 INFO sim.Simulation|***** START OF TIME 14 *****
+11/11 22:06:20 INFO sim.Simulation|***** START OF TIME 14 COMPLETE *****
+11/11 22:06:30 INFO sim.Simulation|***** START OF TIME 15 *****
+11/11 22:06:30 INFO sim.Simulation|***** START OF TIME 15 COMPLETE *****
+11/11 22:06:40 INFO sim.Simulation|***** START OF TIME 16 *****
+11/11 22:06:40 INFO sim.Simulation|***** START OF TIME 16 COMPLETE *****
+11/11 22:06:50 INFO sim.Simulation|***** START OF TIME 17 *****
+11/11 22:06:50 INFO sim.Simulation|***** START OF TIME 17 COMPLETE *****
+11/11 22:07:00 INFO sim.Simulation|***** START OF TIME 18 *****
+11/11 22:07:00 INFO sim.Simulation|***** START OF TIME 18 COMPLETE *****
+11/11 22:07:10 INFO sim.Simulation|***** START OF TIME 19 *****
+11/11 22:07:10 INFO sim.Simulation|***** START OF TIME 19 COMPLETE *****
+11/11 22:07:20 INFO sim.Simulation|***** START OF TIME 20 *****
+11/11 22:07:20 INFO sim.Simulation|***** START OF TIME 20 COMPLETE *****
+11/11 22:07:30 INFO sim.Simulation|***** START OF TIME 21 *****
+11/11 22:07:30 INFO sim.Simulation|***** START OF TIME 21 COMPLETE *****
+11/11 22:07:40 INFO sim.Simulation|***** START OF TIME 22 *****
+11/11 22:07:40 INFO sim.Simulation|***** START OF TIME 22 COMPLETE *****
+11/11 22:07:50 INFO sim.Simulation|***** START OF TIME 23 *****
+11/11 22:07:50 INFO sim.Simulation|***** START OF TIME 23 COMPLETE *****
+11/11 22:08:00 INFO sim.Simulation|***** START OF TIME 24 *****
+11/11 22:08:00 INFO sim.Simulation|***** START OF TIME 24 COMPLETE *****
+11/11 22:08:10 INFO sim.Simulation|***** START OF TIME 25 *****
+11/11 22:08:10 INFO sim.Simulation|***** START OF TIME 25 COMPLETE *****
+11/11 22:08:20 INFO sim.Simulation|***** START OF TIME 26 *****
+11/11 22:08:20 INFO sim.Simulation|***** START OF TIME 26 COMPLETE *****
+11/11 22:08:30 INFO sim.Simulation|***** START OF TIME 27 *****
+11/11 22:08:30 INFO sim.Simulation|***** START OF TIME 27 COMPLETE *****
+11/11 22:08:40 INFO sim.Simulation|***** START OF TIME 28 *****
+11/11 22:08:40 INFO sim.Simulation|***** START OF TIME 28 COMPLETE *****
+11/11 22:08:50 INFO sim.Simulation|***** START OF TIME 29 *****
+11/11 22:08:50 INFO sim.Simulation|***** START OF TIME 29 COMPLETE *****
+11/11 22:09:00 INFO sim.Simulation|***** START OF TIME 30 *****
+11/11 22:09:00 INFO sim.Simulation|***** START OF TIME 30 COMPLETE *****
+11/11 22:09:10 INFO sim.Simulation|***** START OF TIME 31 *****
+11/11 22:09:10 INFO sim.Simulation|***** START OF TIME 31 COMPLETE *****
+11/11 22:09:20 INFO sim.Simulation|***** START OF TIME 32 *****
+11/11 22:09:20 INFO sim.Simulation|***** START OF TIME 32 COMPLETE *****
+11/11 22:09:30 INFO sim.Simulation|***** START OF TIME 33 *****
+11/11 22:09:30 INFO sim.Simulation|***** START OF TIME 33 COMPLETE *****
+11/11 22:09:40 INFO sim.Simulation|***** START OF TIME 34 *****
+11/11 22:09:40 INFO sim.Simulation|***** START OF TIME 34 COMPLETE *****
+11/11 22:09:50 INFO sim.Simulation|***** START OF TIME 35 *****
+11/11 22:09:50 INFO sim.Simulation|***** START OF TIME 35 COMPLETE *****
+11/11 22:10:00 INFO sim.Simulation|***** START OF TIME 36 *****
+11/11 22:10:00 INFO sim.Simulation|***** START OF TIME 36 COMPLETE *****
+11/11 22:10:10 INFO sim.Simulation|***** START OF TIME 37 *****
+11/11 22:10:10 INFO sim.Simulation|***** START OF TIME 37 COMPLETE *****
+11/11 22:10:20 INFO sim.Simulation|***** START OF TIME 38 *****
+11/11 22:10:20 INFO sim.Simulation|***** START OF TIME 38 COMPLETE *****
+11/11 22:10:30 INFO sim.Simulation|***** START OF TIME 39 *****
+11/11 22:10:30 INFO sim.Simulation|***** START OF TIME 39 COMPLETE *****
+11/11 22:10:40 INFO sim.Simulation|***** START OF TIME 40 *****
+11/11 22:10:40 INFO sim.Simulation|***** START OF TIME 40 COMPLETE *****
+11/11 22:10:50 INFO sim.Simulation|***** START OF TIME 41 *****
+11/11 22:10:50 INFO sim.Simulation|***** START OF TIME 41 COMPLETE *****
+11/11 22:11:00 INFO sim.Simulation|***** START OF TIME 42 *****
+11/11 22:11:00 INFO sim.Simulation|***** START OF TIME 42 COMPLETE *****
+11/11 22:11:10 INFO sim.Simulation|***** START OF TIME 43 *****
+11/11 22:11:10 INFO sim.Simulation|***** START OF TIME 43 COMPLETE *****
+11/11 22:11:20 INFO sim.Simulation|***** START OF TIME 44 *****
+11/11 22:11:20 INFO sim.Simulation|***** START OF TIME 44 COMPLETE *****
+11/11 22:11:30 INFO sim.Simulation|***** START OF TIME 45 *****
+11/11 22:11:30 INFO sim.Simulation|***** START OF TIME 45 COMPLETE *****
+11/11 22:11:40 INFO sim.Simulation|***** START OF TIME 46 *****
+11/11 22:11:40 INFO sim.Simulation|***** START OF TIME 46 COMPLETE *****
+11/11 22:11:50 INFO sim.Simulation|***** START OF TIME 47 *****
+11/11 22:11:50 INFO sim.Simulation|***** START OF TIME 47 COMPLETE *****
+11/11 22:12:00 INFO sim.Simulation|***** START OF TIME 48 *****
+11/11 22:12:00 INFO sim.Simulation|***** START OF TIME 48 COMPLETE *****
+11/11 22:12:10 INFO sim.Simulation|***** START OF TIME 49 *****
+11/11 22:12:10 INFO sim.Simulation|***** START OF TIME 49 COMPLETE *****
+11/11 22:12:20 INFO sim.Simulation|***** START OF TIME 50 *****
+11/11 22:12:20 INFO sim.Simulation|***** START OF TIME 50 COMPLETE *****
+11/11 22:12:30 INFO sim.Simulation|***** START OF TIME 51 *****
+11/11 22:12:30 INFO sim.Simulation|***** START OF TIME 51 COMPLETE *****
+11/11 22:12:40 INFO sim.Simulation|***** START OF TIME 52 *****
+11/11 22:12:40 INFO sim.Simulation|***** START OF TIME 52 COMPLETE *****
+11/11 22:12:50 INFO sim.Simulation|***** START OF TIME 53 *****
+11/11 22:12:50 INFO sim.Simulation|***** START OF TIME 53 COMPLETE *****
+11/11 22:13:00 INFO sim.Simulation|***** START OF TIME 54 *****
+11/11 22:13:00 INFO sim.Simulation|***** START OF TIME 54 COMPLETE *****
+11/11 22:13:10 INFO sim.Simulation|***** START OF TIME 55 *****
+11/11 22:13:10 INFO sim.Simulation|***** START OF TIME 55 COMPLETE *****
+11/11 22:13:20 INFO sim.Simulation|***** START OF TIME 56 *****
+11/11 22:13:20 INFO sim.Simulation|***** START OF TIME 56 COMPLETE *****
+11/11 22:13:30 INFO sim.Simulation|***** START OF TIME 57 *****
+11/11 22:13:30 INFO sim.Simulation|***** START OF TIME 57 COMPLETE *****
+11/11 22:13:40 INFO sim.Simulation|***** START OF TIME 58 *****
+11/11 22:13:40 INFO sim.Simulation|***** START OF TIME 58 COMPLETE *****
+11/11 22:13:50 INFO sim.Simulation|***** START OF TIME 59 *****
+11/11 22:13:50 INFO sim.Simulation|***** START OF TIME 59 COMPLETE *****
+11/11 22:14:00 INFO sim.Simulation|***** START OF TIME 60 *****
+11/11 22:14:00 FINE sim.Simulation|Simulation 4 is requested to stop
+11/11 22:14:00 INFO sim.Simulation|***** START OF TIME 60 COMPLETE *****
+11/11 22:14:00 FINE sim.Simulation|Simulation 4 is preparing to stop
+11/11 22:14:00 FINE sim.Simulation|Simulation 4 is being stopped
+11/11 22:14:00 FINE sim.Admin|Simulation log complete
+************************************************************
+* Simulation log complete
+************************************************************
+
+
