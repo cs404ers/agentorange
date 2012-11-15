@@ -1,3 +1,3 @@
-REM bat wrapper, need something like git bash to run
+:: bat wrapper, need something like git bash to run
 
 runAgent.sh
