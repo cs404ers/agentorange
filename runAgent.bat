@@ -1,3 +1,1 @@
-cd agentorange
-./runAgent.sh
-cd ..
+runAgent.sh
