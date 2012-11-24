@@ -190,10 +190,14 @@ public class AgentC1 extends Agent{
 
 
 	    protected void sendBidAndAds() {
-	        BidBundle bidBundle = new BidBundle();
+	        
+		//***Croc Initial Bidding Algorithm***
+		//Initial bidding algorithm for croc uses fixed cpc due to delay in report
 
-	        String publisherAddress = advertiserInfo.getPublisherId();
-          
+	   	BidBundle bidBundle = new BidBundle();
+
+		String publisherAddress = advertiserInfo.getPublisherId();
+	          
           for(Query query : querySpace) {
 	            // The publisher will interpret a NaN bid as
 	            // a request to persist the prior day's bid
