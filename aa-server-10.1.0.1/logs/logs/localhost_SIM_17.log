@@ -1,0 +1,35 @@
+24/11 19:38:00 FINE sim.Admin|Log for simulation 17 started
+************************************************************
+* Log for simulation 17 started
+************************************************************
+
+
+24/11 19:38:00 INFO sim.TACAASimulation|TACAA Simulation 17 is setting up...
+24/11 19:38:00 INFO sim.TACAASimulation|Created 1 users
+24/11 19:38:00 INFO sim.TACAASimulation|Created 1 publishers
+24/11 19:38:00 FINE sim.ExternalAgent|AgentC1 setup with address adv1
+24/11 19:38:00 FINE DummyAdvertiser.Dummy|dummy Dummy simulationSetup
+24/11 19:38:00 FINE DummyAdvertiser.Dummy-2|dummy Dummy-2 simulationSetup
+24/11 19:38:00 FINE DummyAdvertiser.Dummy-3|dummy Dummy-3 simulationSetup
+24/11 19:38:00 FINE DummyAdvertiser.Dummy-4|dummy Dummy-4 simulationSetup
+24/11 19:38:00 FINE DummyAdvertiser.Dummy-5|dummy Dummy-5 simulationSetup
+24/11 19:38:00 FINE DummyAdvertiser.Dummy-6|dummy Dummy-6 simulationSetup
+24/11 19:38:00 FINE DummyAdvertiser.Dummy-7|dummy Dummy-7 simulationSetup
+24/11 19:38:00 INFO sim.TACAASimulation|Using random capacity assigments
+24/11 19:38:00 INFO auction.QueryReportManagerImpl|QueryReportManager reset
+24/11 19:38:00 INFO sim.Simulation|***** START OF TIME 0 *****
+24/11 19:38:01 INFO sim.Simulation|***** START OF TIME 0 COMPLETE *****
+24/11 19:38:10 INFO sim.Simulation|***** START OF TIME 1 *****
+24/11 19:38:10 INFO sim.Simulation|***** START OF TIME 1 COMPLETE *****
+24/11 19:38:20 INFO sim.Simulation|***** START OF TIME 2 *****
+24/11 19:38:20 INFO sim.Simulation|***** START OF TIME 2 COMPLETE *****
+24/11 19:38:30 INFO sim.Simulation|***** START OF TIME 3 *****
+24/11 19:38:30 INFO sim.Simulation|***** START OF TIME 3 COMPLETE *****
+24/11 19:38:40 INFO sim.Simulation|***** START OF TIME 4 *****
+24/11 19:38:40 INFO sim.Simulation|***** START OF TIME 4 COMPLETE *****
+24/11 19:38:50 INFO sim.Simulation|***** START OF TIME 5 *****
+24/11 19:38:50 INFO sim.Simulation|***** START OF TIME 5 COMPLETE *****
+24/11 19:39:00 INFO sim.Simulation|***** START OF TIME 6 *****
+24/11 19:39:00 INFO sim.Simulation|***** START OF TIME 6 COMPLETE *****
+24/11 19:39:01 SEVERE tact.TACTConnection|AgentC1@tact-1: closed from other side
+24/11 19:39:01 SEVERE tact.TACTConnection|tact-2: closed from other side

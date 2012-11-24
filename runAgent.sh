@@ -11,5 +11,7 @@ for i in $( ls ${LIB}/*.jar ); do
     CLASSPATH=${CLASSPATH}:$i
 done
 
-javac -cp $CLASSPATH AgentOrange.java
-java -server -cp $CLASSPATH edu.umich.eecs.tac.aa.agentware.Main -config config/aw.conf
+echo $1
+
+javac -cp $CLASSPATH AgentC1.java
+java -server -cp $CLASSPATH edu.umich.eecs.tac.aa.agentware.Main -config config/c1.conf
