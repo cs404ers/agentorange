@@ -11,6 +11,15 @@ import java.net.*;
 
 
 public class AgentC1 extends Agent{
+    
+    private enum R {MISS, MISSNEUTRAL, MISSHIT, NEUTRAL, HITNEUTRAL, HIT}
+    private EnumMap Result = new EnumMap<R,Integer>(R.class);
+
+    private double[] clicks;
+    private double[] values;
+	private double moneyMade = 0;
+	private double moneySpent = 0;
+    
     /**
      * Basic simulation information. {@link StartInfo} contains
      * <ul>
@@ -94,40 +103,13 @@ public class AgentC1 extends Agent{
     
     protected Socket comms;
     
-    private Query qPA = new Query("pg","audio");
-    private double aPA = 0.5;
-    
-    private Query qPD = new Query("pg", "dvd");
-    private double aPD = 0.5;
-    
-    private Query qPT = new Query("pg","tv");
-    private double aPT = 0.5;
-    
-    private Query qFA = new Query("flat","audio");
-    private double aFA = 0.5;
-    
-    private Query qFD = new Query("flat", "dvd");
-    private double aFD = 0.5;
-    
-    private Query qFT = new Query("flat","tv");
-    private double aFT = 0.5;
-    
-    private Query qLA = new Query("lioneer","audio");
-    private double aLA = 0.5;
-    
-    private Query qLD = new Query("lioneer", "dvd");
-    private double aLD = 0.5;
-    
-    private Query qLT = new Query("lioneer","tv");
-    private double aLT = 0.5;
-    
-    private double up = 0.01;
-    private double down = -0.01;
-    
-    public AgentC1() {
+   public AgentC1() {
         salesReports = new LinkedList<SalesReport>();
         queryReports = new LinkedList<QueryReport>();
         querySpace = new LinkedHashSet<Query>();
+        generateEnumMap();
+        clicks = new double[Result.size()];
+        values = new double[Result.size()];
     }
 
 	 protected void messageReceived(Message message) {
@@ -150,7 +132,9 @@ public class AgentC1 extends Agent{
 	        } else if (content instanceof StartInfo) {
 	            handleStartInfo((StartInfo) content);
 	        }
-	    
+	        
+	        System.out.println("(AgentC1): Message Received!");
+	        
 	    }
       
       private double change(double x, double deltaX)
@@ -167,46 +151,28 @@ public class AgentC1 extends Agent{
           return x;  
         }
 
-      private double getVPC(Query query)
+      private double getCost(Query query)
         {
-          return (((SalesReport)((LinkedList)salesReports).getLast()).getRevenue(query))/(((QueryReport)(((LinkedList)queryReports).getLast())).getCost(query));
+          return (((QueryReport)(((LinkedList)queryReports).getLast())).getCost(query));
         }
+      
+      
+      
+      private int getDay(Query query) 
+      	{
+      	  return ((LinkedList)queryReports).size();
+      	}
 
-      private double getRevMinCost(Query query)
+      private double getClicks(Query query)
         {
-          return ((SalesReport)((LinkedList)salesReports).getLast()).getRevenue(query) - ((QueryReport)(((LinkedList)queryReports).getLast())).getCost(query);
-        }
-
-      private double getCPC(Query query)
-        {
-          return ((QueryReport)(((LinkedList)queryReports).getLast())).getCPC(query);
+          return ( ((QueryReport) ( (LinkedList)queryReports ).getLast()).getClicks(query) );
         }
         
-      private double getLastRevenue(Query query) 
-      	{
-      	  return ((SalesReport)(((LinkedList)salesReports).getLast())).getRevenue(query);
-      	}
-      	
-      private int getClicks(Query query) 
-      	{
-      	  return ((QueryReport)(((LinkedList)queryReports).getLast())).getClicks(query);
-      	}
-      	
-      private int getConversions(Query query)
-      	{
-      	  return ((SalesReport)(((LinkedList)salesReports).getLast())).getConversions(query);
-      	}
-      	
-      private double getLastBid(Query query, BidBundle bidbundle) 
-      	{
-      	
-      		if(bidbundle.getBid(query)>0) {
-      	   		return bidbundle.getBid(query);
-      	   	}
-      	   
-      	   return 1.0;
-      	}
-
+      private double getValue(Query query)
+        {
+		  return ( ((SalesReport) ( (LinkedList)salesReports ).getLast()).getRevenue(query) );
+        }
+      
 	    /**
 	     * Sends a constructed {@link BidBundle} from any updated bids, ads, or spend limits.
 	     */
@@ -220,177 +186,132 @@ public class AgentC1 extends Agent{
 	   		BidBundle bidBundle = new BidBundle();
 			String publisherAddress = advertiserInfo.getPublisherId();
 				
+
+				// Spend whatever money we have plus an initial float
+				double spendLimit = 100 + moneyMade - moneySpent;
+				if (spendLimit < 100) {
+          spendLimit = 100;
+        }
+
+				
 				for(Query query : querySpace) {
-	            // The publisher will interpret a NaN bid as
-	            // a request to persist the prior day's bid
-	            double bid = 1;
-	            // bid = [ calculated optimal bid ]
-
-              	if ((query.getManufacturer() == null) && (query.getComponent() == null))
-                {
-            		bid = 1.15*getCPC(query);
-                } 
-              	else if (query.getComponent() == null)
-                {
-                  if (!query.getManufacturer().equals(advertiserInfo.getManufacturerSpecialty()))
-                    {
-                      bid = 0.65*getCPC(query);
-                    }
-                  else
-                    {
-                      bid = 1.15*getCPC(query);
-                    }
-                }
-              	else if (query.getManufacturer() == null)
-                {
-                  if (!query.getComponent().equals(advertiserInfo.getComponentSpecialty()))
-                    {
-                      bid = 0.65*getCPC(query);
-                    }
-                  else
-                    {
-                      bid = 1.15*getCPC(query);
-                    }
-                }
-              	else if (!(query.getManufacturer().equals(advertiserInfo.getManufacturerSpecialty())) && !(query.getComponent().equals(advertiserInfo.getComponentSpecialty())))
-                {
-                  bid = 1.15*getCPC(query);
-                }
-              //miss-neutral
-              
-              	else if ((((!query.getManufacturer().equals(advertiserInfo.getManufacturerSpecialty())) && (query.getComponent().equals(advertiserInfo.getComponentSpecialty())))) || ((query.getManufacturer().equals(advertiserInfo.getManufacturerSpecialty())) && (!query.getComponent().equals(advertiserInfo.getComponentSpecialty()))))
-                {
-                  bid = 1.05*getCPC(query);
-                } 
-              //hit   
-              	else if ((query.getManufacturer().equals(advertiserInfo.getManufacturerSpecialty())) && (query.getComponent().equals(advertiserInfo.getComponentSpecialty())))
-                {
-                  bid = 1.25*getCPC(query);
-                }             
-              
-             	// The publisher will interpret a null ad as
-	            // a request to persist the prior day's ad
-	            
-	            if (((LinkedList)queryReports).size() == 1) 
-                {
-                  System.out.println("FIRST BID!");
-                  bid = 1;
-                }
-	            
-	            Ad ad = new Ad();
-	            
-	            if (((query.getType() == QueryType.FOCUS_LEVEL_ZERO)) || ((query.getType() == QueryType.FOCUS_LEVEL_ONE)))
-                {
-                  ad = new Ad();
-                }
-              	else
-                {
-                  Product p = new Product(query.getManufacturer(),query.getComponent());
-                  ad = new Ad(p);
-                }
-                
-                	
- 
-	            // The publisher will interpret a NaN spend limit as
-	            // a request to persist the prior day's spend limit
-	            double spendLimit = 100;
-	            // spendLimit = [ calculated optimal spend limit ]
-
-
-	            // Set the daily updates to the ad campaigns for this query class
-	            bidBundle.addQuery(query,  bid, ad);
-	            bidBundle.setDailyLimit(query, spendLimit);
-	        }
-
-                
-        //***Croc subsequent bidding algorithm***
-        //Consequent bidding algorithm for croc once report is ready
-    	//To do: implement optimal value of bidding parameters
-        	
-        	for(Query query : querySpace) {
-        	
-        		double bid = 1;
-        		double mod = 1;
-        	
-        		System.out.println("***QUERY " + query.getType() + "***");
-        		
-        		if (getLastRevenue(query)==0) {
-        		
-        			System.out.println("(AgentC1): No revenue.");
-        			
-        			if (query.getType().toString()=="FOCUS_LEVEL_TWO") {
-        			
-        				bid = Math.min(0.30, 1.30*getLastBid(query, bidBundle));
-        			
-        				if ((query.getManufacturer().equals(advertiserInfo.getManufacturerSpecialty())) && (query.getComponent().equals(advertiserInfo.getComponentSpecialty()))) {
-        					
-        					bid = 1.20 * bid;
-        					
-        				}
-        			
-        			} else {
-        			
-        				bid = 1.05 * getLastBid(query, bidBundle);
-        	
-        			}
-        			
-        		} else {
-        		
-        			mod = getClicks(query)/getConversions(query);
-        			bid = DefineBid(mod, query, bidBundle);
-        		
-        			System.out.println("(AgentC1): " + getLastRevenue(query) + " revenue.");
-        		}
-        		
-        		System.out.println("(AgentC1): Clicks: " + getClicks(query));
-        		System.out.println("(AgentC1): Conversions: " + getConversions(query));
-        		System.out.println("(AgentC1): Ratio: " + mod);
-        		
-        		System.out.println("******************************");
-        	
-        	}
-        	
+					// The publisher will interpret a NaN bid as
+					// a request to persist the prior day's bid
+					double bid = 1;
+					// bid = [ calculated optimal bid ]
+					double bidMultiplier = 1;
+					
+					// Calculate Matching Category
+					if (isManufacturerSpeciality(query) && isComponentSpeciality(query))
+					{
+						// HIT (zeta)
+						addClicksAndVals(R.HIT, query);
+						bid = generateBid(R.HIT);
+					}            
+					else if ( (isManufacturerSpeciality(query) && !isComponentSpeciality(query)) )
+					{
+						if (query.getComponent() != null) {
+							// MISS-HIT (gamma)
+							addClicksAndVals(R.MISSHIT, query);
+							bid = generateBid(R.MISSHIT);
+						} else {
+							// NEUTRAL-HIT (epsilon)
+							addClicksAndVals(R.HITNEUTRAL, query);
+							bid = generateBid(R.HITNEUTRAL);
+						}
+					}
+					else if ( (!isManufacturerSpeciality(query) && isComponentSpeciality(query)) )
+					{
+						if (query.getManufacturer() != null) {
+							// MISS-HIT (gamma)
+							addClicksAndVals(R.MISSHIT, query);
+							bid = generateBid(R.HITNEUTRAL);
+						} else {
+							// NEUTRAL-HIT (epsilon)
+							addClicksAndVals(R.HITNEUTRAL, query);
+							bid = generateBid(R.HITNEUTRAL);
+						}
+					} 
+					else if ((query.getManufacturer() == null) && (query.getComponent() == null))
+					{	
+						// NEUTRAL (delta)
+						addClicksAndVals(R.NEUTRAL, query);
+						bid = generateBid(R.NEUTRAL);
+					} 
+					else if (query.getManufacturer() == null || query.getComponent() == null)
+					{
+						// MISS-NEUTRAL (beta)
+						// One is null, not the other (therefore one neutral)
+						// and the speciality case has already been triggered (therefore one miss)
+						addClicksAndVals(R.MISSNEUTRAL, query);
+						bid = generateBid(R.MISSNEUTRAL);
+					}
+					else {
+						// MISS (alpha)
+						addClicksAndVals(R.MISS, query);
+						bid = generateBid(R.MISS);
+					}
+					
+					// Target the Advert Appropriately
+					Ad ad = new Ad();
+					switch (query.getType()) {
+						case FOCUS_LEVEL_ONE:
+							if (query.getManufacturer() == null)
+							{
+							  Product p = new Product(advertiserInfo.getManufacturerSpecialty(),query.getComponent());
+							  ad = new Ad(p);
+							}
+							else
+							{
+							  Product p = new Product(query.getManufacturer(),advertiserInfo.getComponentSpecialty());
+							  ad = new Ad(p);
+							}
+						case FOCUS_LEVEL_TWO:
+							Product p = new Product(query.getManufacturer(),query.getComponent());
+							ad = new Ad(p);
+					}
+					
+					// Set the daily updates to the ad campaigns for this query class
+					bidBundle.addQuery(query,  bid, ad);
+					
+				}
     
-	        // The publisher will interpret a NaN campaign spend limit as
-	        // a request to persist the prior day's campaign spend limit
-	        double campaignSpendLimit = 10000;
-	        // campaignSpendLimit = [ calculated optimal campaign spend limit ]
-
 
 	        // Set the daily updates to the campaign spend limit
-	        bidBundle.setCampaignDailySpendLimit(campaignSpendLimit);
+	        bidBundle.setCampaignDailySpendLimit(spendLimit);
 
 	        // Send the bid bundle to the publisher
 	        if (publisherAddress != null) {
 	            sendMessage(publisherAddress, bidBundle);
 	        }
 	    }
-
-
-		/**
-		*
-		* Defines a bid for croc's ad agent algorithm
-		*
-		* @param ratio of clicks to conversions
-		*/
 		
-		protected double DefineBid(double mod, Query q, BidBundle bb) {
-		
-			double bid = 1.0;
-		
-			if (mod < 10) {
-				bid = Math.max(0.10, 0.97*getLastBid(q,bb));
-			} else if (0.65 <= mod) {
-				bid = Math.max(0.10, 1.15*getLastBid(q,bb));
+		private float generateBid(R r) {
+			if(get(r, clicks) == 0 || get(r, values) == 0) {
+				// INITIALISATION VARIANT
+				// bid = sales_profit * mu
 			} else {
-				bid = Math.max(0.10, 0.97*getLastBid(q,bb));
+				// bid = VPC * omega
 			}
-			
-			return bid;
-		
+			return 1;
 		}
-
-	    /**
+		
+		private boolean isManufacturerSpeciality(Query query) {
+			return (query.getManufacturer() == null ? false : query.getManufacturer().equals(advertiserInfo.getManufacturerSpecialty()));
+		}
+		
+		private boolean isComponentSpeciality(Query query) {
+			return (query.getComponent() == null ? false : query.getComponent().equals(advertiserInfo.getComponentSpecialty()));
+		}
+		
+		private void addClicksAndVals(R r, Query query) {
+			set(r, get(r, clicks) + getClicks(query), clicks);
+			set(r, get(r, values) + getValue(query), values);
+			moneyMade += getValue(query);
+			moneySpent += getCost(query);
+		}
+		
+		/**
 	     * Processes an incoming query report.
 	     *
 	     * @param queryReport the daily query report.
@@ -498,5 +419,29 @@ public class AgentC1 extends Agent{
 	        queryReports.clear();
 	        querySpace.clear();
 	    }
+		
+		private void set(R r, double f, double[] fA)
+		  {
+			fA[index(r)] = f;
+		  }
+		
+		private double get(R r, double[] fA)
+		  {
+			 return fA[index(r)];
+		  }
+		  
+		private void generateEnumMap()
+		  {
+			  Result.put(R.MISS, new Integer(0));
+			  Result.put(R.MISSNEUTRAL, new Integer(1));
+			  Result.put(R.MISSHIT, new Integer(2));
+			  Result.put(R.NEUTRAL, new Integer(3));
+			  Result.put(R.HITNEUTRAL, new Integer(4));
+			  Result.put(R.HIT, new Integer(5));
+		  }
+		  
+		private int index(R r)
+		  {
+			return ((int) Result.get(r));
+		  }
 	}
-
