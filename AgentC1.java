@@ -290,10 +290,21 @@ public class AgentC1 extends Agent{
 			//start with a ridiculous bid
 			double bid = 1.0;
 			double reserve = 0.0; //TODO
+			
+			double conversionRate; 
+			
+			double alpha; 
+			double beta;
+			double gamma;
+			double delta; 
+			double epsilon; 
+			double zeta; 
 		
 			if(get(r, clicks) == 0 || get(r, values) == 0) {
 				// INITIALISATION VARIANT
 				// bid = sales_profit * mu
+				
+				bid = initialBids(r);
 			} else {
 				// bid = VPC * omega
 				
@@ -327,6 +338,32 @@ public class AgentC1 extends Agent{
 			}
 			return bid;
 		}
+		
+	private double initialBids(R r) {  
+
+		double bid = 0.0;
+		
+		for(Query query : querySpace) {
+		
+			switch(r) {
+				case MISS:          bid = retailCatalog.getSalesProfit(new Product(query.getManufacturer(), query.getComponent())) * 1.15;
+					break;
+				case MISSNEUTRAL:   bid = retailCatalog.getSalesProfit(new Product(query.getManufacturer(), query.getComponent())) * 0.65;
+					break;
+				case MISSHIT:       bid = retailCatalog.getSalesProfit(new Product(query.getManufacturer(), query.getComponent())) * 1.05;
+					break;
+				case NEUTRAL:       bid = retailCatalog.getSalesProfit(new Product(query.getManufacturer(), query.getComponent())) * 1.15;
+					break;
+				case HITNEUTRAL:    bid = retailCatalog.getSalesProfit(new Product(query.getManufacturer(), query.getComponent())) * 1.15;
+					break;
+				case HIT:           bid = retailCatalog.getSalesProfit(new Product(query.getManufacturer(), query.getComponent())) * 1.25;
+					break;
+				default:            bid = 0;
+			}
+		}
+		
+		return bid;
+	}
 		
 		private boolean isManufacturerSpeciality(Query query) {
 			return (query.getManufacturer() == null ? false : query.getManufacturer().equals(advertiserInfo.getManufacturerSpecialty()));
