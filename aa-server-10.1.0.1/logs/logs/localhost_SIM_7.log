@@ -1,0 +1,168 @@
+24/11 17:27:00 FINE sim.Admin|Log for simulation 7 started
+************************************************************
+* Log for simulation 7 started
+************************************************************
+
+
+24/11 17:27:00 INFO sim.TACAASimulation|TACAA Simulation 7 is setting up...
+24/11 17:27:00 INFO sim.TACAASimulation|Created 1 users
+24/11 17:27:00 INFO sim.TACAASimulation|Created 1 publishers
+24/11 17:27:00 FINE sim.ExternalAgent|AgentC1 setup with address adv1
+24/11 17:27:00 FINE DummyAdvertiser.Dummy|dummy Dummy simulationSetup
+24/11 17:27:00 FINE DummyAdvertiser.Dummy-2|dummy Dummy-2 simulationSetup
+24/11 17:27:00 FINE DummyAdvertiser.Dummy-3|dummy Dummy-3 simulationSetup
+24/11 17:27:00 FINE DummyAdvertiser.Dummy-4|dummy Dummy-4 simulationSetup
+24/11 17:27:00 FINE DummyAdvertiser.Dummy-5|dummy Dummy-5 simulationSetup
+24/11 17:27:00 FINE DummyAdvertiser.Dummy-6|dummy Dummy-6 simulationSetup
+24/11 17:27:00 FINE DummyAdvertiser.Dummy-7|dummy Dummy-7 simulationSetup
+24/11 17:27:00 INFO sim.TACAASimulation|Using random capacity assigments
+24/11 17:27:00 INFO auction.QueryReportManagerImpl|QueryReportManager reset
+24/11 17:27:00 INFO sim.Simulation|***** START OF TIME 0 *****
+24/11 17:27:00 INFO sim.Simulation|***** START OF TIME 0 COMPLETE *****
+24/11 17:27:00 INFO sim.MessageDispatcher|Message dispatcher sim6 IS BEING GARBAGED
+24/11 17:27:10 INFO sim.Simulation|***** START OF TIME 1 *****
+24/11 17:27:10 INFO sim.Simulation|***** START OF TIME 1 COMPLETE *****
+24/11 17:27:20 INFO sim.Simulation|***** START OF TIME 2 *****
+24/11 17:27:20 INFO sim.Simulation|***** START OF TIME 2 COMPLETE *****
+24/11 17:27:30 INFO sim.Simulation|***** START OF TIME 3 *****
+24/11 17:27:30 INFO sim.Simulation|***** START OF TIME 3 COMPLETE *****
+24/11 17:27:40 INFO sim.Simulation|***** START OF TIME 4 *****
+24/11 17:27:40 INFO sim.Simulation|***** START OF TIME 4 COMPLETE *****
+24/11 17:27:50 INFO sim.Simulation|***** START OF TIME 5 *****
+24/11 17:27:50 INFO sim.Simulation|***** START OF TIME 5 COMPLETE *****
+24/11 17:28:00 INFO sim.Simulation|***** START OF TIME 6 *****
+24/11 17:28:00 INFO sim.Simulation|***** START OF TIME 6 COMPLETE *****
+24/11 17:28:10 INFO sim.Simulation|***** START OF TIME 7 *****
+24/11 17:28:10 INFO sim.Simulation|***** START OF TIME 7 COMPLETE *****
+24/11 17:28:16 SEVERE tact.TACTConnection|AgentC1@tact-5: closed from other side
+24/11 17:28:16 SEVERE tact.TACTConnection|tact-6: closed from other side
+24/11 17:28:20 INFO sim.Simulation|***** START OF TIME 8 *****
+24/11 17:28:20 INFO sim.Simulation|***** START OF TIME 8 COMPLETE *****
+24/11 17:28:30 INFO sim.Simulation|***** START OF TIME 9 *****
+24/11 17:28:30 INFO sim.Simulation|***** START OF TIME 9 COMPLETE *****
+24/11 17:28:40 INFO sim.Simulation|***** START OF TIME 10 *****
+24/11 17:28:40 INFO sim.Simulation|***** START OF TIME 10 COMPLETE *****
+24/11 17:28:43 INFO server.TACTChannel|user AgentC1 logged in as AgentC1@tact-7 with version 0.9.6 from 127.0.0.1
+24/11 17:28:50 INFO sim.Simulation|***** START OF TIME 11 *****
+24/11 17:28:50 INFO sim.Simulation|***** START OF TIME 11 COMPLETE *****
+24/11 17:28:50 WARNING sim.TACAASimulation|recovering agent AgentC1
+24/11 17:28:56 SEVERE tact.TACTConnection|AgentC1@tact-7: closed from other side
+24/11 17:28:56 SEVERE tact.TACTConnection|tact-8: closed from other side
+24/11 17:29:00 INFO sim.Simulation|***** START OF TIME 12 *****
+24/11 17:29:00 INFO sim.Simulation|***** START OF TIME 12 COMPLETE *****
+24/11 17:29:10 INFO sim.Simulation|***** START OF TIME 13 *****
+24/11 17:29:10 INFO sim.Simulation|***** START OF TIME 13 COMPLETE *****
+24/11 17:29:15 INFO server.TACTChannel|user AgentC1 logged in as AgentC1@tact-9 with version 0.9.6 from 127.0.0.1
+24/11 17:29:20 INFO sim.Simulation|***** START OF TIME 14 *****
+24/11 17:29:20 INFO sim.Simulation|***** START OF TIME 14 COMPLETE *****
+24/11 17:29:20 WARNING sim.TACAASimulation|recovering agent AgentC1
+24/11 17:29:30 INFO sim.Simulation|***** START OF TIME 15 *****
+24/11 17:29:30 INFO sim.Simulation|***** START OF TIME 15 COMPLETE *****
+24/11 17:29:40 INFO sim.Simulation|***** START OF TIME 16 *****
+24/11 17:29:40 INFO sim.Simulation|***** START OF TIME 16 COMPLETE *****
+24/11 17:29:44 SEVERE tact.TACTConnection|tact-10: closed from other side
+24/11 17:29:44 SEVERE tact.TACTConnection|AgentC1@tact-9: closed from other side
+24/11 17:29:50 INFO sim.Simulation|***** START OF TIME 17 *****
+24/11 17:29:50 INFO sim.Simulation|***** START OF TIME 17 COMPLETE *****
+24/11 17:30:00 INFO sim.Simulation|***** START OF TIME 18 *****
+24/11 17:30:00 INFO sim.Simulation|***** START OF TIME 18 COMPLETE *****
+24/11 17:30:10 INFO sim.Simulation|***** START OF TIME 19 *****
+24/11 17:30:10 INFO sim.Simulation|***** START OF TIME 19 COMPLETE *****
+24/11 17:30:12 INFO server.TACTChannel|user AgentC1 logged in as AgentC1@tact-11 with version 0.9.6 from 127.0.0.1
+24/11 17:30:14 SEVERE tact.TACTConnection|AgentC1@tact-11: closed from other side
+24/11 17:30:20 INFO sim.Simulation|***** START OF TIME 20 *****
+24/11 17:30:20 INFO sim.Simulation|***** START OF TIME 20 COMPLETE *****
+24/11 17:30:20 WARNING sim.TACAASimulation|recovering agent AgentC1
+24/11 17:30:30 INFO sim.Simulation|***** START OF TIME 21 *****
+24/11 17:30:30 INFO sim.Simulation|***** START OF TIME 21 COMPLETE *****
+24/11 17:30:40 INFO sim.Simulation|***** START OF TIME 22 *****
+24/11 17:30:40 INFO sim.Simulation|***** START OF TIME 22 COMPLETE *****
+24/11 17:30:50 INFO sim.Simulation|***** START OF TIME 23 *****
+24/11 17:30:50 INFO sim.Simulation|***** START OF TIME 23 COMPLETE *****
+24/11 17:31:00 INFO sim.Simulation|***** START OF TIME 24 *****
+24/11 17:31:00 INFO sim.Simulation|***** START OF TIME 24 COMPLETE *****
+24/11 17:31:10 INFO sim.Simulation|***** START OF TIME 25 *****
+24/11 17:31:10 INFO sim.Simulation|***** START OF TIME 25 COMPLETE *****
+24/11 17:31:20 INFO sim.Simulation|***** START OF TIME 26 *****
+24/11 17:31:20 INFO sim.Simulation|***** START OF TIME 26 COMPLETE *****
+24/11 17:31:30 INFO sim.Simulation|***** START OF TIME 27 *****
+24/11 17:31:30 INFO sim.Simulation|***** START OF TIME 27 COMPLETE *****
+24/11 17:31:40 INFO sim.Simulation|***** START OF TIME 28 *****
+24/11 17:31:40 INFO sim.Simulation|***** START OF TIME 28 COMPLETE *****
+24/11 17:31:50 INFO sim.Simulation|***** START OF TIME 29 *****
+24/11 17:31:50 INFO sim.Simulation|***** START OF TIME 29 COMPLETE *****
+24/11 17:32:00 INFO sim.Simulation|***** START OF TIME 30 *****
+24/11 17:32:00 INFO sim.Simulation|***** START OF TIME 30 COMPLETE *****
+24/11 17:32:10 INFO sim.Simulation|***** START OF TIME 31 *****
+24/11 17:32:10 INFO sim.Simulation|***** START OF TIME 31 COMPLETE *****
+24/11 17:32:20 INFO sim.Simulation|***** START OF TIME 32 *****
+24/11 17:32:20 INFO sim.Simulation|***** START OF TIME 32 COMPLETE *****
+24/11 17:32:30 INFO sim.Simulation|***** START OF TIME 33 *****
+24/11 17:32:30 INFO sim.Simulation|***** START OF TIME 33 COMPLETE *****
+24/11 17:32:40 INFO sim.Simulation|***** START OF TIME 34 *****
+24/11 17:32:40 INFO sim.Simulation|***** START OF TIME 34 COMPLETE *****
+24/11 17:32:50 INFO sim.Simulation|***** START OF TIME 35 *****
+24/11 17:32:50 INFO sim.Simulation|***** START OF TIME 35 COMPLETE *****
+24/11 17:33:00 INFO sim.Simulation|***** START OF TIME 36 *****
+24/11 17:33:00 INFO sim.Simulation|***** START OF TIME 36 COMPLETE *****
+24/11 17:33:10 INFO sim.Simulation|***** START OF TIME 37 *****
+24/11 17:33:10 INFO sim.Simulation|***** START OF TIME 37 COMPLETE *****
+24/11 17:33:19 INFO server.TACTChannel|user AgentC1 logged in as AgentC1@tact-12 with version 0.9.6 from 127.0.0.1
+24/11 17:33:20 INFO sim.Simulation|***** START OF TIME 38 *****
+24/11 17:33:20 INFO sim.Simulation|***** START OF TIME 38 COMPLETE *****
+24/11 17:33:20 WARNING sim.TACAASimulation|recovering agent AgentC1
+24/11 17:33:25 SEVERE tact.TACTConnection|tact-13: closed from other side
+24/11 17:33:25 SEVERE tact.TACTConnection|AgentC1@tact-12: closed from other side
+24/11 17:33:30 INFO sim.Simulation|***** START OF TIME 39 *****
+24/11 17:33:30 INFO sim.Simulation|***** START OF TIME 39 COMPLETE *****
+24/11 17:33:40 INFO sim.Simulation|***** START OF TIME 40 *****
+24/11 17:33:40 INFO sim.Simulation|***** START OF TIME 40 COMPLETE *****
+24/11 17:33:50 INFO sim.Simulation|***** START OF TIME 41 *****
+24/11 17:33:50 INFO sim.Simulation|***** START OF TIME 41 COMPLETE *****
+24/11 17:34:00 INFO sim.Simulation|***** START OF TIME 42 *****
+24/11 17:34:00 INFO sim.Simulation|***** START OF TIME 42 COMPLETE *****
+24/11 17:34:10 INFO sim.Simulation|***** START OF TIME 43 *****
+24/11 17:34:10 INFO sim.Simulation|***** START OF TIME 43 COMPLETE *****
+24/11 17:34:20 INFO sim.Simulation|***** START OF TIME 44 *****
+24/11 17:34:20 INFO sim.Simulation|***** START OF TIME 44 COMPLETE *****
+24/11 17:34:30 INFO sim.Simulation|***** START OF TIME 45 *****
+24/11 17:34:30 INFO sim.Simulation|***** START OF TIME 45 COMPLETE *****
+24/11 17:34:40 INFO sim.Simulation|***** START OF TIME 46 *****
+24/11 17:34:40 INFO sim.Simulation|***** START OF TIME 46 COMPLETE *****
+24/11 17:34:50 INFO sim.Simulation|***** START OF TIME 47 *****
+24/11 17:34:50 INFO sim.Simulation|***** START OF TIME 47 COMPLETE *****
+24/11 17:35:00 INFO sim.Simulation|***** START OF TIME 48 *****
+24/11 17:35:00 INFO sim.Simulation|***** START OF TIME 48 COMPLETE *****
+24/11 17:35:10 INFO sim.Simulation|***** START OF TIME 49 *****
+24/11 17:35:10 INFO sim.Simulation|***** START OF TIME 49 COMPLETE *****
+24/11 17:35:20 INFO sim.Simulation|***** START OF TIME 50 *****
+24/11 17:35:20 INFO sim.Simulation|***** START OF TIME 50 COMPLETE *****
+24/11 17:35:30 INFO sim.Simulation|***** START OF TIME 51 *****
+24/11 17:35:30 INFO sim.Simulation|***** START OF TIME 51 COMPLETE *****
+24/11 17:35:40 INFO sim.Simulation|***** START OF TIME 52 *****
+24/11 17:35:40 INFO sim.Simulation|***** START OF TIME 52 COMPLETE *****
+24/11 17:35:50 INFO sim.Simulation|***** START OF TIME 53 *****
+24/11 17:35:50 INFO sim.Simulation|***** START OF TIME 53 COMPLETE *****
+24/11 17:36:00 INFO sim.Simulation|***** START OF TIME 54 *****
+24/11 17:36:00 INFO sim.Simulation|***** START OF TIME 54 COMPLETE *****
+24/11 17:36:10 INFO sim.Simulation|***** START OF TIME 55 *****
+24/11 17:36:10 INFO sim.Simulation|***** START OF TIME 55 COMPLETE *****
+24/11 17:36:20 INFO sim.Simulation|***** START OF TIME 56 *****
+24/11 17:36:20 INFO sim.Simulation|***** START OF TIME 56 COMPLETE *****
+24/11 17:36:30 INFO sim.Simulation|***** START OF TIME 57 *****
+24/11 17:36:30 INFO sim.Simulation|***** START OF TIME 57 COMPLETE *****
+24/11 17:36:40 INFO sim.Simulation|***** START OF TIME 58 *****
+24/11 17:36:40 INFO sim.Simulation|***** START OF TIME 58 COMPLETE *****
+24/11 17:36:50 INFO sim.Simulation|***** START OF TIME 59 *****
+24/11 17:36:50 INFO sim.Simulation|***** START OF TIME 59 COMPLETE *****
+24/11 17:37:00 INFO sim.Simulation|***** START OF TIME 60 *****
+24/11 17:37:00 FINE sim.Simulation|Simulation 7 is requested to stop
+24/11 17:37:00 INFO sim.Simulation|***** START OF TIME 60 COMPLETE *****
+24/11 17:37:00 FINE sim.Simulation|Simulation 7 is preparing to stop
+24/11 17:37:00 FINE sim.Simulation|Simulation 7 is being stopped
+24/11 17:37:00 FINE sim.Admin|Simulation log complete
+************************************************************
+* Simulation log complete
+************************************************************
+
+

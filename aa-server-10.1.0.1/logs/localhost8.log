@@ -1,0 +1,84 @@
+24/11 17:07:56 INFO file.FileDatabase|infodb: database opened as /Users/Bernard/Desktop/cs404/agentorange/aa-server-10.1.0.1/infodb
+24/11 17:07:56 INFO common.BlockingViewerServer|viewer server started at *:4042
+24/11 17:07:56 INFO sim.Admin|adding manager for simulation type tac09aa
+24/11 17:07:56 INFO server.TACTGateway|TACT Server started at *:6502
+24/11 17:14:54 INFO server.TACTChannel|user AgentC1 logged in as AgentC1@tact-1 with version 0.9.6 from 127.0.0.1
+24/11 17:14:54 INFO sim.Admin|created simulation 7
+24/11 17:15:00 FINE sim.Admin|Entering log for simulation 6
+************************************************************
+* Entering log for simulation 6
+************************************************************
+
+
+24/11 17:25:00 INFO global|SIMULATIONAGENT Dummy-7 (Dummy-7,-8) IS BEING GARBAGED
+24/11 17:25:00 INFO global|SIMULATIONAGENT Dummy-6 (Dummy-6,-7) IS BEING GARBAGED
+24/11 17:25:00 INFO global|SIMULATIONAGENT Dummy-5 (Dummy-5,-6) IS BEING GARBAGED
+24/11 17:25:00 INFO global|SIMULATIONAGENT Dummy-4 (Dummy-4,-5) IS BEING GARBAGED
+24/11 17:25:00 INFO global|SIMULATIONAGENT Dummy-3 (Dummy-3,-4) IS BEING GARBAGED
+24/11 17:25:00 INFO global|SIMULATIONAGENT Dummy-2 (Dummy-2,-3) IS BEING GARBAGED
+24/11 17:25:00 INFO global|SIMULATIONAGENT Dummy (Dummy,-2) IS BEING GARBAGED
+24/11 17:25:00 INFO global|SIMULATIONAGENT AgentC1 (adv1,22) IS BEING GARBAGED
+24/11 17:25:00 INFO global|SIMULATIONAGENT publisher (publisher,-1) IS BEING GARBAGED
+24/11 17:25:00 INFO global|PUBLISHER publisher IS BEING GARBAGED
+24/11 17:25:00 INFO global|SIMULATIONAGENT users (users,-1) IS BEING GARBAGED
+24/11 17:25:00 INFO global|USER users IS BEING GARBAGED
+24/11 17:25:00 INFO global|BANK FOR SIMULATION 6 IS BEING GARBAGED
+24/11 17:25:00 INFO sim.Simulation|SIMULATION 6 IS BEING GARBAGED
+24/11 17:25:05 INFO is.TACAAResultManager|generating results for simulation 6 to public_html/localhost/history/6/index.html
+24/11 17:26:30 INFO server.TACTChannel|user AgentC1 logged in as AgentC1@tact-5 with version 0.9.6 from 127.0.0.1
+24/11 17:26:30 INFO sim.Admin|created simulation 8
+24/11 17:27:00 FINE sim.Admin|Entering log for simulation 7
+************************************************************
+* Entering log for simulation 7
+************************************************************
+
+
+24/11 17:37:00 INFO global|SIMULATIONAGENT Dummy-7 (Dummy-7,-8) IS BEING GARBAGED
+24/11 17:37:00 INFO global|SIMULATIONAGENT Dummy-6 (Dummy-6,-7) IS BEING GARBAGED
+24/11 17:37:00 INFO global|SIMULATIONAGENT Dummy-5 (Dummy-5,-6) IS BEING GARBAGED
+24/11 17:37:00 INFO global|SIMULATIONAGENT Dummy-4 (Dummy-4,-5) IS BEING GARBAGED
+24/11 17:37:00 INFO global|SIMULATIONAGENT Dummy-3 (Dummy-3,-4) IS BEING GARBAGED
+24/11 17:37:00 INFO global|SIMULATIONAGENT Dummy-2 (Dummy-2,-3) IS BEING GARBAGED
+24/11 17:37:00 INFO global|SIMULATIONAGENT Dummy (Dummy,-2) IS BEING GARBAGED
+24/11 17:37:00 INFO global|SIMULATIONAGENT AgentC1 (adv1,22) IS BEING GARBAGED
+24/11 17:37:00 INFO global|SIMULATIONAGENT publisher (publisher,-1) IS BEING GARBAGED
+24/11 17:37:00 INFO global|PUBLISHER publisher IS BEING GARBAGED
+24/11 17:37:00 INFO global|SIMULATIONAGENT users (users,-1) IS BEING GARBAGED
+24/11 17:37:00 INFO global|USER users IS BEING GARBAGED
+24/11 17:37:00 INFO global|BANK FOR SIMULATION 7 IS BEING GARBAGED
+24/11 17:37:00 INFO sim.Simulation|SIMULATION 7 IS BEING GARBAGED
+24/11 17:37:04 INFO is.TACAAResultManager|generating results for simulation 7 to public_html/localhost/history/7/index.html
+24/11 17:44:06 INFO server.TACTChannel|user AgentC1 logged in as AgentC1@tact-14 with version 0.9.6 from 127.0.0.1
+24/11 17:44:06 INFO sim.Admin|created simulation 9
+24/11 17:44:15 SEVERE tact.TACTConnection|AgentC1@tact-14: closed from other side
+24/11 17:44:44 INFO server.TACTChannel|user AgentC1 logged in as AgentC1@tact-15 with version 0.9.6 from 127.0.0.1
+24/11 17:44:48 SEVERE tact.TACTConnection|AgentC1@tact-15: closed from other side
+24/11 17:45:00 FINE sim.Admin|Entering log for simulation 8
+************************************************************
+* Entering log for simulation 8
+************************************************************
+
+
+24/11 17:55:00 INFO global|SIMULATIONAGENT Dummy-7 (Dummy-7,-8) IS BEING GARBAGED
+24/11 17:55:00 INFO global|SIMULATIONAGENT Dummy-6 (Dummy-6,-7) IS BEING GARBAGED
+24/11 17:55:00 INFO global|SIMULATIONAGENT Dummy-5 (Dummy-5,-6) IS BEING GARBAGED
+24/11 17:55:00 INFO global|SIMULATIONAGENT Dummy-4 (Dummy-4,-5) IS BEING GARBAGED
+24/11 17:55:00 INFO global|SIMULATIONAGENT Dummy-3 (Dummy-3,-4) IS BEING GARBAGED
+24/11 17:55:00 INFO global|SIMULATIONAGENT Dummy-2 (Dummy-2,-3) IS BEING GARBAGED
+24/11 17:55:00 INFO global|SIMULATIONAGENT Dummy (Dummy,-2) IS BEING GARBAGED
+24/11 17:55:00 INFO global|SIMULATIONAGENT AgentC1 (adv1,22) IS BEING GARBAGED
+24/11 17:55:00 INFO global|SIMULATIONAGENT publisher (publisher,-1) IS BEING GARBAGED
+24/11 17:55:00 INFO global|PUBLISHER publisher IS BEING GARBAGED
+24/11 17:55:00 INFO global|SIMULATIONAGENT users (users,-1) IS BEING GARBAGED
+24/11 17:55:00 INFO global|USER users IS BEING GARBAGED
+24/11 17:55:00 INFO global|BANK FOR SIMULATION 8 IS BEING GARBAGED
+24/11 17:55:00 INFO sim.Simulation|SIMULATION 8 IS BEING GARBAGED
+24/11 17:55:04 INFO is.TACAAResultManager|generating results for simulation 8 to public_html/localhost/history/8/index.html
+24/11 17:55:12 SEVERE tact.TACTConnection|AgentC1@tact-20: closed from other side
+24/11 17:55:12 SEVERE tact.TACTConnection|tact-21: closed from other side
+24/11 17:56:00 FINE sim.Admin|Entering log for simulation 9
+************************************************************
+* Entering log for simulation 9
+************************************************************
+
+

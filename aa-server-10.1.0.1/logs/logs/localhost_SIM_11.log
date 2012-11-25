@@ -1,0 +1,26 @@
+24/11 18:13:00 FINE sim.Admin|Log for simulation 11 started
+************************************************************
+* Log for simulation 11 started
+************************************************************
+
+
+24/11 18:13:00 INFO sim.TACAASimulation|TACAA Simulation 11 is setting up...
+24/11 18:13:00 INFO sim.TACAASimulation|Created 1 users
+24/11 18:13:00 INFO sim.TACAASimulation|Created 1 publishers
+24/11 18:13:00 FINE sim.ExternalAgent|AgentC1 setup with address adv1
+24/11 18:13:00 FINE DummyAdvertiser.Dummy|dummy Dummy simulationSetup
+24/11 18:13:00 FINE DummyAdvertiser.Dummy-2|dummy Dummy-2 simulationSetup
+24/11 18:13:00 FINE DummyAdvertiser.Dummy-3|dummy Dummy-3 simulationSetup
+24/11 18:13:00 FINE DummyAdvertiser.Dummy-4|dummy Dummy-4 simulationSetup
+24/11 18:13:00 FINE DummyAdvertiser.Dummy-5|dummy Dummy-5 simulationSetup
+24/11 18:13:00 FINE DummyAdvertiser.Dummy-6|dummy Dummy-6 simulationSetup
+24/11 18:13:00 FINE DummyAdvertiser.Dummy-7|dummy Dummy-7 simulationSetup
+24/11 18:13:00 INFO sim.TACAASimulation|Using random capacity assigments
+24/11 18:13:00 INFO auction.QueryReportManagerImpl|QueryReportManager reset
+24/11 18:13:00 INFO sim.Simulation|***** START OF TIME 0 *****
+24/11 18:13:00 INFO sim.Simulation|***** START OF TIME 0 COMPLETE *****
+24/11 18:13:00 INFO sim.MessageDispatcher|Message dispatcher sim10 IS BEING GARBAGED
+24/11 18:13:10 INFO sim.Simulation|***** START OF TIME 1 *****
+24/11 18:13:10 INFO sim.Simulation|***** START OF TIME 1 COMPLETE *****
+24/11 18:13:20 INFO sim.Simulation|***** START OF TIME 2 *****
+24/11 18:13:20 INFO sim.Simulation|***** START OF TIME 2 COMPLETE *****

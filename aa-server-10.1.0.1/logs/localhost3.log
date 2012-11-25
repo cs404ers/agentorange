@@ -1,0 +1,10 @@
+24/11 18:51:56 INFO file.FileDatabase|infodb: database opened as /Users/Bernard/Desktop/cs404/agentorange/aa-server-10.1.0.1/infodb
+24/11 18:51:56 INFO common.BlockingViewerServer|viewer server started at *:4042
+24/11 18:51:57 INFO sim.Admin|adding manager for simulation type tac09aa
+24/11 18:51:57 INFO server.TACTGateway|TACT Server started at *:6502
+24/11 18:52:00 FINE sim.Admin|Entering log for simulation 13
+************************************************************
+* Entering log for simulation 13
+************************************************************
+
+

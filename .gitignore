@@ -1,6 +1,9 @@
 .DS_Store 
 thumbs.db 
 logs/*
+<<<<<<< HEAD
 public_html/*
 aa-server-10.1.0.1/logs/*
 aa-server-10.1.0.1/public_html/
+=======
+>>>>>>> 6692ee4a58f9a75aae586943b8c0674b06abcd99
