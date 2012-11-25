@@ -289,6 +289,7 @@ public class AgentC1 extends Agent{
 		private double generateBid(R r, Query q) {
 			//start with a ridiculous bid
 			double bid = 1.0;
+			double reserve = 0.0; //TODO
 		
 			if(get(r, clicks) == 0 || get(r, values) == 0) {
 				// INITIALISATION VARIANT
@@ -318,6 +319,11 @@ public class AgentC1 extends Agent{
 				
 				//finally miltiply the coef by the value
 				bid = coef * vpc;
+				
+				//quick safety to check that the bid is sensible
+				if (!(bid <= vpc) || !(bid >= reserve)) {
+					//we have a problem but I have not sorted it out yet
+				}
 			}
 			return bid;
 		}
