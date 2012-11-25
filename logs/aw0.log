@@ -1,1 +1,115 @@
-11/11 22:30:20 INFO agentware.SimClient|next simulation starts in 39 seconds
+24/11 21:35:00 INFO agentware.SimClient|next simulation starts in 119 seconds
+24/11 21:35:00 INFO agentware.SimClient|[will reconnect in 1 minutes, 44 seconds]
+24/11 21:36:45 INFO agentware.SimClient|next simulation 8 starts in 14 seconds
+24/11 21:47:00 INFO agentware.SimClient|next simulation starts in 59 seconds
+24/11 21:58:00 INFO agentware.SimClient|next simulation starts in 59 seconds
+24/11 22:09:00 INFO agentware.SimClient|next simulation starts in 59 seconds
+24/11 22:20:00 INFO agentware.SimClient|next simulation starts in 59 seconds
+24/11 22:31:00 INFO agentware.SimClient|next simulation starts in 59 seconds
+24/11 22:42:00 INFO agentware.SimClient|next simulation starts in 59 seconds
+24/11 22:53:00 INFO agentware.SimClient|next simulation starts in 59 seconds
+24/11 23:04:00 INFO agentware.SimClient|next simulation starts in 59 seconds
+24/11 23:15:00 INFO agentware.SimClient|next simulation starts in 59 seconds
+24/11 23:26:00 INFO agentware.SimClient|next simulation starts in 59 seconds
+24/11 23:37:00 INFO agentware.SimClient|next simulation starts in 59 seconds
+24/11 23:48:00 INFO agentware.SimClient|next simulation starts in 59 seconds
+24/11 23:59:00 INFO agentware.SimClient|next simulation starts in 59 seconds
+25/11 00:10:00 INFO agentware.SimClient|next simulation starts in 59 seconds
+25/11 00:21:00 INFO agentware.SimClient|next simulation starts in 59 seconds
+25/11 00:32:00 INFO agentware.SimClient|next simulation starts in 59 seconds
+25/11 00:43:00 INFO agentware.SimClient|next simulation starts in 59 seconds
+25/11 00:54:00 INFO agentware.SimClient|next simulation starts in 59 seconds
+25/11 01:05:00 INFO agentware.SimClient|next simulation starts in 59 seconds
+25/11 01:16:00 INFO agentware.SimClient|next simulation starts in 59 seconds
+25/11 01:27:00 INFO agentware.SimClient|next simulation starts in 59 seconds
+25/11 01:38:00 INFO agentware.SimClient|next simulation starts in 59 seconds
+25/11 01:49:00 INFO agentware.SimClient|next simulation starts in 59 seconds
+25/11 02:00:00 INFO agentware.SimClient|next simulation starts in 59 seconds
+25/11 02:11:00 INFO agentware.SimClient|next simulation starts in 59 seconds
+25/11 02:22:00 INFO agentware.SimClient|next simulation starts in 59 seconds
+25/11 02:33:00 INFO agentware.SimClient|next simulation starts in 59 seconds
+25/11 02:44:00 INFO agentware.SimClient|next simulation starts in 59 seconds
+25/11 02:55:00 INFO agentware.SimClient|next simulation starts in 59 seconds
+25/11 03:06:00 INFO agentware.SimClient|next simulation starts in 59 seconds
+25/11 03:17:00 INFO agentware.SimClient|next simulation starts in 59 seconds
+25/11 11:15:33 INFO agentware.SimClient|next simulation 39 has already started
+25/11 11:15:51 SEVERE agentware.SimClient|No agent registered to receive Message[coordinator,adv1,BankStatus[11077.332855]]
+25/11 11:15:52 SEVERE agentware.SimClient|No agent registered to receive Message[coordinator,adv1,(SalesReport ((Query (null,null)) conv: 25 rev: 310.000000) ((Query (lioneer,null)) conv: 1 rev: 14.000000) ((Query (flat,audio)) conv: 30 rev: 300.000000) ((Query (null,audio)) conv: 4 rev: 44.000000) ((Query (pg,null)) conv: 4 rev: 40.000000) ((Query (flat,null)) conv: 4 rev: 40.000000))]
+25/11 11:15:52 SEVERE agentware.SimClient|No agent registered to receive Message[coordinator,adv1,(QueryReport ((Query (pg,null)) regular_impr: 564 promoted_impr: 0 clicks: 5 pos: 5.000000 cpc: 0.966200 advertisers: (DisplayReport edu.umich.eecs.tac.props.QueryReport$DisplayReportEntry@f38cf0 edu.umich.eecs.tac.props.QueryReport$DisplayReportEntry@1aa0a15 edu.umich.eecs.tac.props.QueryReport$DisplayReportEntry@7bfc04 edu.umich.eecs.tac.props.QueryReport$DisplayReportEntry@1de8aa8 edu.umich.eecs.tac.props.QueryReport$DisplayReportEntry@1613b53 edu.umich.eecs.tac.props.QueryReport$DisplayReportEntry@7df60a edu.umich.eecs.tac.props.QueryReport$DisplayReportEntry@1a4181c edu.umich.eecs.tac.props.QueryReport$DisplayReportEntry@2af8f5)) ((Query (null,audio)) regular_impr: 550 promoted_impr: 0 clicks: 14 pos: 4.000000 cpc: 0.926043 advertisers: (DisplayReport edu.umich.eecs.tac.props.QueryReport$DisplayReportEntry@13ec2dd edu.umich.eecs.tac.props.QueryReport$DisplayReportEntry@16b61c3 edu.umich.eecs.tac.props.QueryReport$DisplayReportEntry@df4bfc edu.umich.eecs.tac.props.QueryReport$DisplayReportEntry@1f5b4d1 edu.umich.eecs.tac.props.QueryReport$DisplayReportEntry@323274 edu.umich.eecs.tac.props.QueryReport$DisplayReportEntry@18e80a6 edu.umich.eecs.tac.props.QueryReport$DisplayReportEntry@a030d6 edu.umich.eecs.tac.props.QueryReport$DisplayReportEntry@e63606)) ((Query (flat,audio)) regular_impr: 442 promoted_impr: 0 clicks: 101 pos: 2.000000 cpc: 0.983865 advertisers: (DisplayReport edu.umich.eecs.tac.props.QueryReport$DisplayReportEntry@1e4eb5b edu.umich.eecs.tac.props.QueryReport$DisplayReportEntry@17b2b2 edu.umich.eecs.tac.props.QueryReport$DisplayReportEntry@1d4d493 edu.umich.eecs.tac.props.QueryReport$DisplayReportEntry@1d03a4e edu.umich.eecs.tac.props.QueryReport$DisplayReportEntry@1a3e41f edu.umich.eecs.tac.props.QueryReport$DisplayReportEntry@d5cabc edu.umich.eecs.tac.props.QueryReport$DisplayReportEntry@1f10a67 edu.umich.eecs.tac.props.QueryReport$DisplayReportEntry@1e2161d)) ((Query (null,null)) regular_impr: 592 promoted_impr: 0 clicks: 179 pos: 1.000000 cpc: 0.556060 advertisers: (DisplayReport edu.umich.eecs.tac.props.QueryReport$DisplayReportEntry@1a034d edu.umich.eecs.tac.props.QueryReport$DisplayReportEntry@1cee792 edu.umich.eecs.tac.props.QueryReport$DisplayReportEntry@c5577c edu.umich.eecs.tac.props.QueryReport$DisplayReportEntry@1f2af1c edu.umich.eecs.tac.props.QueryReport$DisplayReportEntry@1c6866d edu.umich.eecs.tac.props.QueryReport$DisplayReportEntry@a36b53 edu.umich.eecs.tac.props.QueryReport$DisplayReportEntry@db3331 edu.umich.eecs.tac.props.QueryReport$DisplayReportEntry@fe0fd9)) ((Query (lioneer,null)) regular_impr: 1171 promoted_impr: 0 clicks: 4 pos: 5.000000 cpc: 0.994207 advertisers: (DisplayReport edu.umich.eecs.tac.props.QueryReport$DisplayReportEntry@1c293f8 edu.umich.eecs.tac.props.QueryReport$DisplayReportEntry@180a8b7 edu.umich.eecs.tac.props.QueryReport$DisplayReportEntry@1c4a5ec edu.umich.eecs.tac.props.QueryReport$DisplayReportEntry@1694eca edu.umich.eecs.tac.props.QueryReport$DisplayReportEntry@b3b6a6 edu.umich.eecs.tac.props.QueryReport$DisplayReportEntry@9c8c3f edu.umich.eecs.tac.props.QueryReport$DisplayReportEntry@1bbbafc edu.umich.eecs.tac.props.QueryReport$DisplayReportEntry@1f11507)) ((Query (flat,null)) regular_impr: 544 promoted_impr: 0 clicks: 14 pos: 5.000000 cpc: 0.950022 advertisers: (DisplayReport edu.umich.eecs.tac.props.QueryReport$DisplayReportEntry@9b8ff9 edu.umich.eecs.tac.props.QueryReport$DisplayReportEntry@10952e8 edu.umich.eecs.tac.props.QueryReport$DisplayReportEntry@1220b36 edu.umich.eecs.tac.props.QueryReport$DisplayReportEntry@e06ce edu.umich.eecs.tac.props.QueryReport$DisplayReportEntry@e0f0ad edu.umich.eecs.tac.props.QueryReport$DisplayReportEntry@1d8f162 edu.umich.eecs.tac.props.QueryReport$DisplayReportEntry@1cf662f edu.umich.eecs.tac.props.QueryReport$DisplayReportEntry@13dd208)) ((Query (lioneer,tv)) regular_impr: 0 promoted_impr: 0 clicks: 0 pos: NaN cpc: NaN advertisers: (DisplayReport edu.umich.eecs.tac.props.QueryReport$DisplayReportEntry@1a8402c edu.umich.eecs.tac.props.QueryReport$DisplayReportEntry@10d0eae edu.umich.eecs.tac.props.QueryReport$DisplayReportEntry@3eec1a edu.umich.eecs.tac.props.QueryReport$DisplayReportEntry@fedfb6 edu.umich.eecs.tac.props.QueryReport$DisplayReportEntry@1115152 edu.umich.eecs.tac.props.QueryReport$DisplayReportEntry@1f1f38e edu.umich.eecs.tac.props.QueryReport$DisplayReportEntry@1ad0839)) ((Query (flat,tv)) regular_impr: 0 promoted_impr: 0 clicks: 0 pos: NaN cpc: NaN advertisers: (DisplayReport edu.umich.eecs.tac.props.QueryReport$DisplayReportEntry@f6f1b6 edu.umich.eecs.tac.props.QueryReport$DisplayReportEntry@771eb1 edu.umich.eecs.tac.props.QueryReport$DisplayReportEntry@801059 edu.umich.eecs.tac.props.QueryReport$DisplayReportEntry@1b158db edu.umich.eecs.tac.props.QueryReport$DisplayReportEntry@40b181 edu.umich.eecs.tac.props.QueryReport$DisplayReportEntry@145b02f edu.umich.eecs.tac.props.QueryReport$DisplayReportEntry@31ff23)) ((Query (pg,tv)) regular_impr: 0 promoted_impr: 0 clicks: 0 pos: NaN cpc: NaN advertisers: (DisplayReport edu.umich.eecs.tac.props.QueryReport$DisplayReportEntry@6576d5 edu.umich.eecs.tac.props.QueryReport$DisplayReportEntry@15cd9c0 edu.umich.eecs.tac.props.QueryReport$DisplayReportEntry@dc024a edu.umich.eecs.tac.props.QueryReport$DisplayReportEntry@1a70b8 edu.umich.eecs.tac.props.QueryReport$DisplayReportEntry@1de6817 edu.umich.eecs.tac.props.QueryReport$DisplayReportEntry@83d37a edu.umich.eecs.tac.props.QueryReport$DisplayReportEntry@b113c7)) ((Query (null,tv)) regular_impr: 0 promoted_impr: 0 clicks: 0 pos: NaN cpc: NaN advertisers: (DisplayReport edu.umich.eecs.tac.props.QueryReport$DisplayReportEntry@1899213 edu.umich.eecs.tac.props.QueryReport$DisplayReportEntry@d5276a edu.umich.eecs.tac.props.QueryReport$DisplayReportEntry@eb724 edu.umich.eecs.tac.props.QueryReport$DisplayReportEntry@19ccba edu.umich.eecs.tac.props.QueryReport$DisplayReportEntry@1cfd3b2 edu.umich.eecs.tac.props.QueryReport$DisplayReportEntry@1536eec edu.umich.eecs.tac.props.QueryReport$DisplayReportEntry@9770a3)) ((Query (flat,dvd)) regular_impr: 0 promoted_impr: 0 clicks: 0 pos: NaN cpc: NaN advertisers: (DisplayReport edu.umich.eecs.tac.props.QueryReport$DisplayReportEntry@64160e edu.umich.eecs.tac.props.QueryReport$DisplayReportEntry@e3fda4 edu.umich.eecs.tac.props.QueryReport$DisplayReportEntry@21447f edu.umich.eecs.tac.props.QueryReport$DisplayReportEntry@182a70 edu.umich.eecs.tac.props.QueryReport$DisplayReportEntry@8a2023 edu.umich.eecs.tac.props.QueryReport$DisplayReportEntry@43da1b edu.umich.eecs.tac.props.QueryReport$DisplayReportEntry@a45a24)) ((Query (lioneer,dvd)) regular_impr: 0 promoted_impr: 0 clicks: 0 pos: NaN cpc: NaN advertisers: (DisplayReport edu.umich.eecs.tac.props.QueryReport$DisplayReportEntry@1a1ff9 edu.umich.eecs.tac.props.QueryReport$DisplayReportEntry@12943ac edu.umich.eecs.tac.props.QueryReport$DisplayReportEntry@19ed7e edu.umich.eecs.tac.props.QueryReport$DisplayReportEntry@3727c5 edu.umich.eecs.tac.props.QueryReport$DisplayReportEntry@1140709 edu.umich.eecs.tac.props.QueryReport$DisplayReportEntry@1d9e279)) ((Query (pg,audio)) regular_impr: 0 promoted_impr: 0 clicks: 0 pos: NaN cpc: NaN advertisers: (DisplayReport edu.umich.eecs.tac.props.QueryReport$DisplayReportEntry@1a3aa2c edu.umich.eecs.tac.props.QueryReport$DisplayReportEntry@1f95165 edu.umich.eecs.tac.props.QueryReport$DisplayReportEntry@14ed577 edu.umich.eecs.tac.props.QueryReport$DisplayReportEntry@a09e41 edu.umich.eecs.tac.props.QueryReport$DisplayReportEntry@f5d030 edu.umich.eecs.tac.props.QueryReport$DisplayReportEntry@37165f)) ((Query (lioneer,audio)) regular_impr: 0 promoted_impr: 0 clicks: 0 pos: NaN cpc: NaN advertisers: (DisplayReport edu.umich.eecs.tac.props.QueryReport$DisplayReportEntry@9dd6e2 edu.umich.eecs.tac.props.QueryReport$DisplayReportEntry@8698fa edu.umich.eecs.tac.props.QueryReport$DisplayReportEntry@a56214 edu.umich.eecs.tac.props.QueryReport$DisplayReportEntry@1ca1588 edu.umich.eecs.tac.props.QueryReport$DisplayReportEntry@4bb369)) ((Query (null,dvd)) regular_impr: 0 promoted_impr: 0 clicks: 0 pos: NaN cpc: NaN advertisers: (DisplayReport edu.umich.eecs.tac.props.QueryReport$DisplayReportEntry@1efc208 edu.umich.eecs.tac.props.QueryReport$DisplayReportEntry@1abdac9 edu.umich.eecs.tac.props.QueryReport$DisplayReportEntry@1a8dfb3)) ((Query (pg,dvd)) regular_impr: 0 promoted_impr: 0 clicks: 0 pos: NaN cpc: NaN advertisers: (DisplayReport edu.umich.eecs.tac.props.QueryReport$DisplayReportEntry@1f68272)))]
+25/11 11:15:52 SEVERE agentware.SimClient|No agent registered to receive Message[coordinator,adv1,simulationStatus[44,28208585,false,[]]]
+25/11 11:15:52 SEVERE agentware.SimClient|No agent registered to receive Message[coordinator,adv1,BankStatus[11077.332855]]
+25/11 11:15:52 SEVERE agentware.SimClient|No agent registered to receive Message[coordinator,adv1,(SalesReport)]
+25/11 11:15:52 SEVERE agentware.SimClient|No agent registered to receive Message[coordinator,adv1,(QueryReport)]
+25/11 11:15:52 SEVERE agentware.SimClient|No agent registered to receive Message[coordinator,adv1,simulationStatus[45,28203409,false,[]]]
+25/11 11:15:52 SEVERE agentware.SimClient|No agent registered to receive Message[coordinator,adv1,BankStatus[11077.332855]]
+25/11 11:15:52 SEVERE agentware.SimClient|No agent registered to receive Message[coordinator,adv1,(SalesReport)]
+25/11 11:15:52 SEVERE agentware.SimClient|No agent registered to receive Message[coordinator,adv1,(QueryReport)]
+25/11 11:15:52 SEVERE agentware.SimClient|No agent registered to receive Message[coordinator,adv1,simulationStatus[46,28194755,false,[]]]
+25/11 11:15:52 SEVERE agentware.SimClient|No agent registered to receive Message[coordinator,adv1,BankStatus[11077.332855]]
+25/11 11:15:52 SEVERE agentware.SimClient|No agent registered to receive Message[coordinator,adv1,(SalesReport)]
+25/11 11:15:52 SEVERE agentware.SimClient|No agent registered to receive Message[coordinator,adv1,(QueryReport)]
+25/11 11:15:52 SEVERE agentware.SimClient|No agent registered to receive Message[coordinator,adv1,simulationStatus[47,28186078,false,[]]]
+25/11 11:15:52 SEVERE agentware.SimClient|No agent registered to receive Message[coordinator,adv1,BankStatus[11077.332855]]
+25/11 11:15:52 SEVERE agentware.SimClient|No agent registered to receive Message[coordinator,adv1,(SalesReport)]
+25/11 11:15:52 SEVERE agentware.SimClient|No agent registered to receive Message[coordinator,adv1,(QueryReport)]
+25/11 11:15:52 SEVERE agentware.SimClient|No agent registered to receive Message[coordinator,adv1,simulationStatus[48,28179043,false,[]]]
+25/11 11:15:52 SEVERE agentware.SimClient|No agent registered to receive Message[coordinator,adv1,BankStatus[11077.332855]]
+25/11 11:15:52 SEVERE agentware.SimClient|No agent registered to receive Message[coordinator,adv1,(SalesReport)]
+25/11 11:15:52 SEVERE agentware.SimClient|No agent registered to receive Message[coordinator,adv1,(QueryReport)]
+25/11 11:15:52 SEVERE agentware.SimClient|No agent registered to receive Message[coordinator,adv1,simulationStatus[49,28169080,false,[]]]
+25/11 11:15:52 SEVERE agentware.SimClient|No agent registered to receive Message[coordinator,adv1,BankStatus[11077.332855]]
+25/11 11:15:52 SEVERE agentware.SimClient|No agent registered to receive Message[coordinator,adv1,(SalesReport)]
+25/11 11:15:52 SEVERE agentware.SimClient|No agent registered to receive Message[coordinator,adv1,(QueryReport)]
+25/11 11:15:52 SEVERE agentware.SimClient|No agent registered to receive Message[coordinator,adv1,simulationStatus[50,28159689,false,[]]]
+25/11 11:15:52 SEVERE agentware.SimClient|No agent registered to receive Message[coordinator,adv1,BankStatus[11077.332855]]
+25/11 11:15:52 SEVERE agentware.SimClient|No agent registered to receive Message[coordinator,adv1,(SalesReport)]
+25/11 11:15:52 SEVERE agentware.SimClient|No agent registered to receive Message[coordinator,adv1,(QueryReport)]
+25/11 11:15:52 SEVERE agentware.SimClient|No agent registered to receive Message[coordinator,adv1,simulationStatus[51,28149726,false,[]]]
+25/11 11:15:52 SEVERE agentware.SimClient|No agent registered to receive Message[coordinator,adv1,BankStatus[11077.332855]]
+25/11 11:15:52 SEVERE agentware.SimClient|No agent registered to receive Message[coordinator,adv1,(SalesReport)]
+25/11 11:15:52 SEVERE agentware.SimClient|No agent registered to receive Message[coordinator,adv1,(QueryReport)]
+25/11 11:15:52 SEVERE agentware.SimClient|No agent registered to receive Message[coordinator,adv1,simulationStatus[52,28139773,false,[]]]
+25/11 11:15:52 SEVERE agentware.SimClient|No agent registered to receive Message[coordinator,adv1,BankStatus[11077.332855]]
+25/11 11:15:52 SEVERE agentware.SimClient|No agent registered to receive Message[coordinator,adv1,(SalesReport)]
+25/11 11:15:52 SEVERE agentware.SimClient|No agent registered to receive Message[coordinator,adv1,(QueryReport)]
+25/11 11:15:52 SEVERE agentware.SimClient|No agent registered to receive Message[coordinator,adv1,simulationStatus[53,28130627,false,[]]]
+25/11 11:15:52 SEVERE agentware.SimClient|No agent registered to receive Message[coordinator,adv1,BankStatus[11077.332855]]
+25/11 11:15:52 SEVERE agentware.SimClient|No agent registered to receive Message[coordinator,adv1,(SalesReport)]
+25/11 11:15:52 SEVERE agentware.SimClient|No agent registered to receive Message[coordinator,adv1,(QueryReport)]
+25/11 11:15:52 SEVERE agentware.SimClient|No agent registered to receive Message[coordinator,adv1,simulationStatus[54,28120648,false,[]]]
+25/11 11:15:52 SEVERE agentware.SimClient|No agent registered to receive Message[coordinator,adv1,BankStatus[11077.332855]]
+25/11 11:15:52 SEVERE agentware.SimClient|No agent registered to receive Message[coordinator,adv1,(SalesReport)]
+25/11 11:15:52 SEVERE agentware.SimClient|No agent registered to receive Message[coordinator,adv1,(QueryReport)]
+25/11 11:15:52 SEVERE agentware.SimClient|No agent registered to receive Message[coordinator,adv1,simulationStatus[55,28111878,false,[]]]
+25/11 11:15:52 SEVERE agentware.SimClient|No agent registered to receive Message[coordinator,adv1,BankStatus[11077.332855]]
+25/11 11:15:52 SEVERE agentware.SimClient|No agent registered to receive Message[coordinator,adv1,(SalesReport)]
+25/11 11:15:52 SEVERE agentware.SimClient|No agent registered to receive Message[coordinator,adv1,(QueryReport)]
+25/11 11:15:52 SEVERE agentware.SimClient|No agent registered to receive Message[coordinator,adv1,simulationStatus[56,28101892,false,[]]]
+25/11 11:15:52 SEVERE agentware.SimClient|No agent registered to receive Message[coordinator,adv1,BankStatus[11077.332855]]
+25/11 11:15:52 SEVERE agentware.SimClient|No agent registered to receive Message[coordinator,adv1,(SalesReport)]
+25/11 11:15:52 SEVERE agentware.SimClient|No agent registered to receive Message[coordinator,adv1,(QueryReport)]
+25/11 11:15:52 SEVERE agentware.SimClient|No agent registered to receive Message[coordinator,adv1,simulationStatus[57,28091905,false,[]]]
+25/11 11:15:52 SEVERE agentware.SimClient|No agent registered to receive Message[coordinator,adv1,BankStatus[11077.332855]]
+25/11 11:15:52 SEVERE agentware.SimClient|No agent registered to receive Message[coordinator,adv1,(SalesReport)]
+25/11 11:15:52 SEVERE agentware.SimClient|No agent registered to receive Message[coordinator,adv1,(QueryReport)]
+25/11 11:15:52 SEVERE agentware.SimClient|No agent registered to receive Message[coordinator,adv1,simulationStatus[58,28081918,false,[]]]
+25/11 11:15:52 SEVERE agentware.SimClient|No agent registered to receive Message[coordinator,adv1,BankStatus[11077.332855]]
+25/11 11:15:52 SEVERE agentware.SimClient|No agent registered to receive Message[coordinator,adv1,(SalesReport)]
+25/11 11:15:52 SEVERE agentware.SimClient|No agent registered to receive Message[coordinator,adv1,(QueryReport)]
+25/11 11:15:52 SEVERE agentware.SimClient|No agent registered to receive Message[coordinator,adv1,simulationStatus[59,28071932,false,[]]]
+25/11 11:17:12 SEVERE agentware.SimClient|No agent registered to receive Message[coordinator,adv1,BankStatus[11077.332855]]
+25/11 11:17:12 SEVERE agentware.SimClient|No agent registered to receive Message[coordinator,adv1,(SalesReport)]
+25/11 11:17:12 SEVERE agentware.SimClient|No agent registered to receive Message[coordinator,adv1,(QueryReport)]
+25/11 11:17:12 SEVERE agentware.SimClient|No agent registered to receive Message[coordinator,adv1,simulationStatus[60,28063495,true,[]]]
+25/11 13:59:29 SEVERE agentware.ServerConnection|(2) could not read
+java.net.SocketException: Connection reset
+	at java.net.SocketInputStream.read(Unknown Source)
+	at java.net.SocketInputStream.read(Unknown Source)
+	at java.net.SocketInputStream.read(Unknown Source)
+	at java.io.DataInputStream.readInt(Unknown Source)
+	at edu.umich.eecs.tac.aa.agentware.ServerConnection.run(ServerConnection.java:190)
+	at java.lang.Thread.run(Unknown Source)
+25/11 13:59:29 SEVERE agentware.SimClient|************************************************************
+25/11 13:59:29 SEVERE agentware.SimClient|* Connection Lost
+25/11 13:59:29 SEVERE agentware.SimClient|* Lost connection to localhost (will reconnect in 30 seconds)
+25/11 13:59:29 SEVERE agentware.SimClient|************************************************************

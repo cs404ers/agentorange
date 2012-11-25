@@ -1,7 +1,0 @@
-11/11 22:30:05 INFO file.FileDatabase|infodb: database opened as /Users/Bernard/Desktop/cs404/agentorange/aa-server-10.1.0.1/infodb
-11/11 22:30:06 INFO common.BlockingViewerServer|viewer server started at *:4042
-11/11 22:30:06 INFO sim.Admin|adding manager for simulation type tac09aa
-11/11 22:30:06 INFO server.TACTGateway|TACT Server started at *:6502
-11/11 22:30:20 INFO server.TACTChannel|user agentorange logged in as agentorange@tact-1 with version 0.9.6 from 127.0.0.1
-11/11 22:30:20 INFO sim.Admin|created simulation 6
-11/11 22:30:22 SEVERE tact.TACTConnection|agentorange@tact-1: closed from other side

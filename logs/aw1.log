@@ -1,1 +1,41 @@
-11/11 22:18:08 INFO agentware.SimClient|next simulation starts in 51 seconds
+24/11 21:22:58 SEVERE agentware.ServerConnection|(1) connection to server failed
+java.net.ConnectException: Connection refused: connect
+	at java.net.DualStackPlainSocketImpl.connect0(Native Method)
+	at java.net.DualStackPlainSocketImpl.socketConnect(Unknown Source)
+	at java.net.AbstractPlainSocketImpl.doConnect(Unknown Source)
+	at java.net.AbstractPlainSocketImpl.connectToAddress(Unknown Source)
+	at java.net.AbstractPlainSocketImpl.connect(Unknown Source)
+	at java.net.PlainSocketImpl.connect(Unknown Source)
+	at java.net.SocksSocketImpl.connect(Unknown Source)
+	at java.net.Socket.connect(Unknown Source)
+	at java.net.Socket.connect(Unknown Source)
+	at java.net.Socket.<init>(Unknown Source)
+	at java.net.Socket.<init>(Unknown Source)
+	at edu.umich.eecs.tac.aa.agentware.ServerConnection.connect(ServerConnection.java:109)
+	at edu.umich.eecs.tac.aa.agentware.ServerConnection.run(ServerConnection.java:171)
+	at java.lang.Thread.run(Unknown Source)
+24/11 21:22:58 SEVERE agentware.SimClient|************************************************************
+24/11 21:22:58 SEVERE agentware.SimClient|* Connection Failed
+24/11 21:22:58 SEVERE agentware.SimClient|* Could not connect to localhost (will retry in 30 seconds)
+24/11 21:22:58 SEVERE agentware.SimClient|************************************************************
+24/11 21:23:29 SEVERE agentware.ServerConnection|(1) connection to server failed
+java.net.ConnectException: Connection refused: connect
+	at java.net.DualStackPlainSocketImpl.connect0(Native Method)
+	at java.net.DualStackPlainSocketImpl.socketConnect(Unknown Source)
+	at java.net.AbstractPlainSocketImpl.doConnect(Unknown Source)
+	at java.net.AbstractPlainSocketImpl.connectToAddress(Unknown Source)
+	at java.net.AbstractPlainSocketImpl.connect(Unknown Source)
+	at java.net.PlainSocketImpl.connect(Unknown Source)
+	at java.net.SocksSocketImpl.connect(Unknown Source)
+	at java.net.Socket.connect(Unknown Source)
+	at java.net.Socket.connect(Unknown Source)
+	at java.net.Socket.<init>(Unknown Source)
+	at java.net.Socket.<init>(Unknown Source)
+	at edu.umich.eecs.tac.aa.agentware.ServerConnection.connect(ServerConnection.java:109)
+	at edu.umich.eecs.tac.aa.agentware.ServerConnection.run(ServerConnection.java:171)
+	at java.lang.Thread.run(Unknown Source)
+24/11 21:23:29 SEVERE agentware.SimClient|************************************************************
+24/11 21:23:29 SEVERE agentware.SimClient|* Connection Failed
+24/11 21:23:29 SEVERE agentware.SimClient|* Could not connect to localhost (will retry in 30 seconds)
+24/11 21:23:29 SEVERE agentware.SimClient|************************************************************
+24/11 21:23:59 INFO agentware.SimClient|next simulation starts in 60 seconds
