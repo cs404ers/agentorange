@@ -100,6 +100,11 @@ public class AgentC1 extends Agent{
      * List of all the possible queries made available in the {@link RetailCatalog retail catalog}.
      */
     protected Set<Query> querySpace;
+	
+	/**
+	 * List of all bid bundles	 
+	 */
+	protected Queue<BidBundle> bidBundles;
     
     protected Socket comms;
     
@@ -283,6 +288,9 @@ public class AgentC1 extends Agent{
 	        // Send the bid bundle to the publisher
 	        if (publisherAddress != null) {
 	            sendMessage(publisherAddress, bidBundle);
+				
+				//save tthis bid bundle to the list 
+				bidBundles.add(bidBundle);
 	        }
 	    }
 		
@@ -290,15 +298,6 @@ public class AgentC1 extends Agent{
 			//start with a ridiculous bid
 			double bid = 1.0;
 			double reserve = 0.0; //TODO
-			
-			double conversionRate; 
-			
-			double alpha; 
-			double beta;
-			double gamma;
-			double delta; 
-			double epsilon; 
-			double zeta; 
 		
 			if(get(r, clicks) == 0 || get(r, values) == 0) {
 				// INITIALISATION VARIANT
@@ -307,6 +306,13 @@ public class AgentC1 extends Agent{
 				bid = initialBids(r);
 			} else {
 				// bid = VPC * omega
+				
+				//cr = click/conversion
+				double clicks = ((QueryReport)((LinkedList)queryReports).getLast()).getClicks(q);
+				double conversions = ((SalesReport)((LinkedList)salesReports).getLast()).getConversions(q);
+				double conversionRate = clicks/conversions;
+
+				bid = defineBid(conversionRate, q);
 				
 				//start with some initial values in case nothing good happens
 				double coef = 1.0;
@@ -338,6 +344,28 @@ public class AgentC1 extends Agent{
 			}
 			return bid;
 		}
+	
+	/**
+	*	Returns a bid value 
+	**/
+	private double defineBid(double conversionRate, Query q) {
+		double bid = 0.0;
+		double lowerBound = 10;
+		double middleBound = 0.65;
+		
+		double minBid = 0.1;
+		
+		double decreaseFactor = 0.97;
+		
+		//get last bid on keyword
+				
+		
+		if (conversionRate < lowerBound) {
+			bid = Math.max(minBid, decreaseFactor);
+		} 
+		
+		return 0;
+	}
 		
 	private double initialBids(R r) {  
 
