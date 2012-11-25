@@ -287,6 +287,9 @@ public class AgentC1 extends Agent{
 	    }
 		
 		private double generateBid(R r, Query q) {
+			//start with a ridiculous bid
+			double bid = 1.0;
+		
 			if(get(r, clicks) == 0 || get(r, values) == 0) {
 				// INITIALISATION VARIANT
 				// bid = sales_profit * mu
@@ -294,7 +297,7 @@ public class AgentC1 extends Agent{
 				// bid = VPC * omega
 				
 				//start with some initial values in case nothing good happens
-				double bid = 1.0;
+				double coef = 1.0;
 				double vpc = getValue(q);
 				
 				//determine which coefficient we should be using 
@@ -311,9 +314,12 @@ public class AgentC1 extends Agent{
 						break;
 					case HIT:
 						break;				
-				}				
+				}	
+				
+				//finally miltiply the coef by the value
+				bid = coef * vpc;
 			}
-			return 1;
+			return bid;
 		}
 		
 		private boolean isManufacturerSpeciality(Query query) {
