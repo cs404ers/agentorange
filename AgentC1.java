@@ -286,7 +286,7 @@ public class AgentC1 extends Agent{
 	        }
 	    }
 		
-		private float generateBid(R r, Query q) {
+		private double generateBid(R r, Query q) {
 			if(get(r, clicks) == 0 || get(r, values) == 0) {
 				// INITIALISATION VARIANT
 				// bid = sales_profit * mu
@@ -295,7 +295,7 @@ public class AgentC1 extends Agent{
 				
 				//start with some initial values in case nothing good happens
 				double bid = 1.0;
-				/*double vpc = getValue();*/
+				double vpc = getValue(q);
 				
 				//determine which coefficient we should be using 
 				switch(r) {
