@@ -17,8 +17,8 @@ public class AgentC1 extends Agent{
 
     private double[] clicks;
     private double[] values;
-	private double moneyMade = 0;
-	private double moneySpent = 0;
+    private double moneyMade = 0;
+    private double moneySpent = 0;
     
     /**
      * Basic simulation information. {@link StartInfo} contains
@@ -190,8 +190,8 @@ public class AgentC1 extends Agent{
 				// Spend whatever money we have plus an initial float
 				double spendLimit = 100 + moneyMade - moneySpent;
 				if (spendLimit < 100) {
-          spendLimit = 100;
-        }
+					spendLimit = 100;
+				}
 
 				
 				for(Query query : querySpace) {
@@ -206,18 +206,18 @@ public class AgentC1 extends Agent{
 					{
 						// HIT (zeta)
 						addClicksAndVals(R.HIT, query);
-						bid = generateBid(R.HIT);
+						bid = generateBid(R.HIT, query);
 					}            
 					else if ( (isManufacturerSpeciality(query) && !isComponentSpeciality(query)) )
 					{
 						if (query.getComponent() != null) {
 							// MISS-HIT (gamma)
 							addClicksAndVals(R.MISSHIT, query);
-							bid = generateBid(R.MISSHIT);
+							bid = generateBid(R.MISSHIT, query);
 						} else {
 							// NEUTRAL-HIT (epsilon)
 							addClicksAndVals(R.HITNEUTRAL, query);
-							bid = generateBid(R.HITNEUTRAL);
+							bid = generateBid(R.HITNEUTRAL, query);
 						}
 					}
 					else if ( (!isManufacturerSpeciality(query) && isComponentSpeciality(query)) )
@@ -225,18 +225,18 @@ public class AgentC1 extends Agent{
 						if (query.getManufacturer() != null) {
 							// MISS-HIT (gamma)
 							addClicksAndVals(R.MISSHIT, query);
-							bid = generateBid(R.HITNEUTRAL);
+							bid = generateBid(R.HITNEUTRAL, query);
 						} else {
 							// NEUTRAL-HIT (epsilon)
 							addClicksAndVals(R.HITNEUTRAL, query);
-							bid = generateBid(R.HITNEUTRAL);
+							bid = generateBid(R.HITNEUTRAL, query);
 						}
 					} 
 					else if ((query.getManufacturer() == null) && (query.getComponent() == null))
 					{	
 						// NEUTRAL (delta)
 						addClicksAndVals(R.NEUTRAL, query);
-						bid = generateBid(R.NEUTRAL);
+						bid = generateBid(R.NEUTRAL, query);
 					} 
 					else if (query.getManufacturer() == null || query.getComponent() == null)
 					{
@@ -244,12 +244,12 @@ public class AgentC1 extends Agent{
 						// One is null, not the other (therefore one neutral)
 						// and the speciality case has already been triggered (therefore one miss)
 						addClicksAndVals(R.MISSNEUTRAL, query);
-						bid = generateBid(R.MISSNEUTRAL);
+						bid = generateBid(R.MISSNEUTRAL, query);
 					}
 					else {
 						// MISS (alpha)
 						addClicksAndVals(R.MISS, query);
-						bid = generateBid(R.MISS);
+						bid = generateBid(R.MISS, query);
 					}
 					
 					// Target the Advert Appropriately
@@ -286,12 +286,32 @@ public class AgentC1 extends Agent{
 	        }
 	    }
 		
-		private float generateBid(R r) {
+		private float generateBid(R r, Query q) {
 			if(get(r, clicks) == 0 || get(r, values) == 0) {
 				// INITIALISATION VARIANT
 				// bid = sales_profit * mu
 			} else {
 				// bid = VPC * omega
+				
+				//start with some initial values in case nothing good happens
+				double bid = 1.0;
+				/*double vpc = getValue();*/
+				
+				//determine which coefficient we should be using 
+				switch(r) {
+					case MISS:
+						break;
+					case MISSNEUTRAL:
+						break;
+					case MISSHIT:
+						break;
+					case NEUTRAL:
+						break;
+					case HITNEUTRAL:
+						break;
+					case HIT:
+						break;				
+				}				
 			}
 			return 1;
 		}
