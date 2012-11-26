@@ -297,7 +297,14 @@ public class AgentC1 extends Agent{
 		private double generateBid(R r, Query q) {
 			//start with a ridiculous bid
 			double bid = 1.0;
-			double reserve = 0.0; //TODO
+			double reserve = 0.0; //TODO	
+
+			double focusParameter = 0.8;
+			double specialityParameter = 1.3;
+			double minimumBidZero = 0.3;
+			double hitParameter = 1.3;
+			double parameterZero = 1.05;
+			double specialityParameterZero = 1.2;
 		
 			if(get(r, clicks) == 0 || get(r, values) == 0) {
 				// INITIALISATION VARIANT
@@ -307,39 +314,39 @@ public class AgentC1 extends Agent{
 			} else {
 				// bid = VPC * omega
 				
-				//cr = click/conversion
-				double clicks = ((QueryReport)((LinkedList)queryReports).getLast()).getClicks(q);
-				double conversions = ((SalesReport)((LinkedList)salesReports).getLast()).getConversions(q);
-				double conversionRate = clicks/conversions;
+				double revenue = ((SalesReport)((LinkedList)salesReports).getLast()).getRevenue(q); 
+				double lastBid = ((BidBundle)((LinkedList)bidBundles).getLast()).getBid(q);
+				
+				if (revenue != 0) {
+				
+					//cr = click/conversion
+					double clicks = ((QueryReport)((LinkedList)queryReports).getLast()).getClicks(q);
+					double conversions = ((SalesReport)((LinkedList)salesReports).getLast()).getConversions(q);
+					double conversionRate = clicks/conversions;
 
-				bid = defineBid(conversionRate, q);
-				
-				//start with some initial values in case nothing good happens
-				double coef = 1.0;
-				double vpc = getValue(q);
-				
-				//determine which coefficient we should be using 
-				switch(r) {
-					case MISS:
-						break;
-					case MISSNEUTRAL:
-						break;
-					case MISSHIT:
-						break;
-					case NEUTRAL:
-						break;
-					case HITNEUTRAL:
-						break;
-					case HIT:
-						break;				
-				}	
-				
-				//finally miltiply the coef by the value
-				bid = coef * vpc;
-				
-				//quick safety to check that the bid is sensible
-				if (!(bid <= vpc) || !(bid >= reserve)) {
-					//we have a problem but I have not sorted it out yet
+					//get the new bid value 
+					bid = defineBid(conversionRate, q);
+					
+					//if focus level is F0 or F1
+					if ((r == R.NEUTRAL) || (r == R.HITNEUTRAL) || (r == R.MISSNEUTRAL)) {
+						bid = focusParameter * lastBid;
+					}
+					
+					//if the item was our speciality, increase bid accordingly
+					if (r == R.HIT) {
+						bid = specialityParameter * lastBid;
+					}
+				} else {
+					//if focus level is F2
+					if ((r == R.MISS) || (r == R.HIT)) {
+						bid = Math.min(minimumBidZero, hitParameter * lastBid);
+						//if this is our speciality
+						if (r == R.HIT) {
+							bid = specialityParameterZero * lastBid; 
+						}
+					} else {
+						bid = parameterZero * lastBid;
+					}				
 				}
 			}
 			return bid;
