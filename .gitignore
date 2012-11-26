@@ -5,4 +5,4 @@ public_html/*
 aa-server-10.1.0.1/logs/*
 aa-server-10.1.0.1/public_html/
 *.class
-
+config/aw.conf
