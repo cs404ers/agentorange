@@ -356,15 +356,21 @@ public class AgentC1 extends Agent{
 		double minBid = 0.1;
 		
 		double decreaseFactor = 0.97;
+		double increaseFactor = 1.15;
+		double maxIncreaseFactor = 1.2;
+		
+		double lastBid = ((BidBundle)((LinkedList)bidBundles).getLast()).getBid(q);
 		
 		//get last bid on keyword
-				
-		
 		if (conversionRate < lowerBound) {
-			bid = Math.max(minBid, decreaseFactor);
-		} 
+			bid = Math.max(minBid, decreaseFactor * lastBid);
+		} else if ((lowerBound <= conversionRate) && (conversionRate <= middleBound)) {
+			bid = Math.max(minBid, increaseFactor * lastBid);
+		} else {
+			bid = Math.max(minBid, maxIncreaseFactor * lastBid);
+		}
 		
-		return 0;
+		return bid;
 	}
 		
 	private double initialBids(R r) {  
