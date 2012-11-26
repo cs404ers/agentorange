@@ -104,7 +104,7 @@ public class AgentC1 extends Agent{
 	/**
 	 * List of all bid bundles	 
 	 */
-	protected Queue<BidBundle> bidBundles;
+	protected Queue<BidBundle> bidBundles = new Queue()<BidBundles>;
     
     protected Socket comms;
     
@@ -283,7 +283,7 @@ public class AgentC1 extends Agent{
     
 
 	        // Set the daily updates to the campaign spend limit
-	        bidBundle.setCampaignDailySpendLimit(spendLimit);
+	        bidBundle.setCampaignDailySpendLimit(10000000);
 
 	        // Send the bid bundle to the publisher
 	        if (publisherAddress != null) {
