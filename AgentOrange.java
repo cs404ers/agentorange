@@ -414,6 +414,9 @@ public class AgentOrange extends Agent{
 					break;
 				default:            bid = 0;
 			}
+			
+			bid = 1.25;
+			
 		}
 		
 		return 1.25;
