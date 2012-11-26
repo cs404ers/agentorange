@@ -116,6 +116,7 @@ public class AgentOrange extends Agent{
         System.out.println("Agent Orange Reset");
         salesReports = new LinkedList<SalesReport>();
         queryReports = new LinkedList<QueryReport>();
+		bidBundles = new LinkedList<BidBundle>();
         querySpace = new LinkedHashSet<Query>();
         generateEnumMap();
         clicks = new double[Result.size()];
