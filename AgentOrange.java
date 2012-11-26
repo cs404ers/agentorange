@@ -416,7 +416,7 @@ public class AgentOrange extends Agent{
 			}
 		}
 		
-		return bid;
+		return 1.25;
 	}
 		
 		private boolean isManufacturerSpeciality(Query query) {
@@ -565,6 +565,6 @@ public class AgentOrange extends Agent{
 		  
 		private int index(R r)
 		  {
-			return ((int) Result.get(r));
+			return ((Integer) Result.get(r));
 		  }
 	}
