@@ -414,6 +414,9 @@ public class AgentOrange extends Agent{
 					break;
 				default:            bid = 0;
 			}
+			
+			bid = 1.25;
+			
 		}
 		
 		return bid;
@@ -565,6 +568,6 @@ public class AgentOrange extends Agent{
 		  
 		private int index(R r)
 		  {
-			return ((int) Result.get(r));
+			return ((Integer) Result.get(r));
 		  }
 	}
