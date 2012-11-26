@@ -196,6 +196,7 @@ public class AgentC1 extends Agent{
 				double spendLimit = 100 + moneyMade - moneySpent;
 				if (spendLimit < 100) {
 					spendLimit = 100;
+					System.out.println("AGENTC1NEW: Spendlimit = "+spendLimit);
 				}
 
 				

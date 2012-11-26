@@ -13,5 +13,5 @@ done
 
 echo $1
 
-javac -cp $CLASSPATH AgentC1.java
-java -server -cp $CLASSPATH edu.umich.eecs.tac.aa.agentware.Main -config config/c1.conf
+javac -cp $CLASSPATH AgentOrange.java
+java -server -cp $CLASSPATH edu.umich.eecs.tac.aa.agentware.Main -config config/o1.conf
