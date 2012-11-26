@@ -17,8 +17,8 @@ public class AgentOrange extends Agent{
 
     private double[] clicks;
     private double[] values;
-    private double moneyMade = 0;
-    private double moneySpent = 0;
+    //private double moneyMade = 0;
+    //private double moneySpent = 0;
     
     /**
      * Basic simulation information. {@link StartInfo} contains
@@ -105,16 +105,23 @@ public class AgentOrange extends Agent{
 	 * List of all bid bundles	 
 	 */
 	protected Queue<BidBundle> bidBundles;
+	
+	private double bankBalance;
+	
+	private double cap; // if we have a bank balance below this value, we can only spend this value per day till we get out
     
     protected Socket comms;
     
    public AgentOrange() {
+        System.out.println("Agent Orange Reset");
         salesReports = new LinkedList<SalesReport>();
         queryReports = new LinkedList<QueryReport>();
         querySpace = new LinkedHashSet<Query>();
         generateEnumMap();
         clicks = new double[Result.size()];
         values = new double[Result.size()];
+        bankBalance = 0;
+        cap = 100;
     }
 
 	 protected void messageReceived(Message message) {
@@ -137,7 +144,7 @@ public class AgentOrange extends Agent{
 	        } else if (content instanceof StartInfo) {
 	            handleStartInfo((StartInfo) content);
 	        } else if (content instanceof BankStatus) {
-            System.out.println(((BankStatus)(content)).getAccountBalance());
+            bankBalance = ((BankStatus)(content)).getAccountBalance();
           }
 	        
 	        System.out.println("(AgentOrange): Message Received!");
@@ -194,13 +201,12 @@ public class AgentOrange extends Agent{
 			String publisherAddress = advertiserInfo.getPublisherId();
 				
 
-        System.out.println("AgentOrangeNEW: moneyMade = "+moneyMade);
-        System.out.println("AgentOrangeNEW: moneySpent = "+moneySpent);
+        System.out.println("AgentOrangeNEW: bankBalance = "+bankBalance);
 				// Spend whatever money we have plus an initial float
-				double spendLimit = 100 + moneyMade - moneySpent;
-				if (spendLimit < 100) {
-					spendLimit = 100;
-					
+				double spendLimit = cap + bankBalance;
+				if (spendLimit < cap) {
+					spendLimit = cap;
+          System.out.println("AgentOrange: Capping spendlimit as in debt");
 				}
 				System.out.println("AgentOrangeNEW: Spendlimit = "+spendLimit);
 
@@ -423,8 +429,8 @@ public class AgentOrange extends Agent{
 		private void addClicksAndVals(R r, Query query) {
 			set(r, get(r, clicks) + getClicks(query), clicks);
 			set(r, get(r, values) + getValue(query), values);
-			moneyMade += getValue(query);
-			moneySpent += getCost(query);
+			//moneyMade += getValue(query);
+			//moneySpent += getCost(query);
 		}
 		
 		/**
