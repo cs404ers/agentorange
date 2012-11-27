@@ -329,6 +329,12 @@ public class AgentOrange extends Agent{
 				
 				double revenue = ((SalesReport)((LinkedList)salesReports).getLast()).getRevenue(q); 
 				double lastBid = ((BidBundle)((LinkedList)bidBundles).getLast()).getBid(q);
+				double lastBid2;
+				if (getPenultimateBid(q) != null) {
+					lastBid2 = getPenultimateBid(q);
+				} else {
+					lastBid2 = lastBid;
+				}
 				
 				if (revenue != 0) {
 				
@@ -342,7 +348,7 @@ public class AgentOrange extends Agent{
 					
 					//if focus level is F0 or F1
 					if ((r == R.NEUTRAL) || (r == R.HITNEUTRAL) || (r == R.MISSNEUTRAL)) {
-						bid = focusParameter * lastBid;
+						bid = focusParameter * bid;
 					}
 					
 					//if the item was our speciality, increase bid accordingly
@@ -352,13 +358,13 @@ public class AgentOrange extends Agent{
 				} else {
 					//if focus level is F2
 					if ((r == R.MISS) || (r == R.HIT)) {
-						bid = Math.min(minimumBidZero, hitParameter * lastBid);
+						bid = Math.min(minimumBidZero, hitParameter * lastBid2);
 						//if this is our speciality
 						if (r == R.HIT) {
-							bid = specialityParameterZero * lastBid; 
+							bid = specialityParameterZero * bid; 
 						}
 					} else {
-						bid = parameterZero * lastBid;
+						bid = parameterZero * lastBid2;
 					}				
 				}
 			}
@@ -380,10 +386,16 @@ public class AgentOrange extends Agent{
 		double maxIncreaseFactor = 1.2;
 		
 		double lastBid = ((BidBundle)((LinkedList)bidBundles).getLast()).getBid(q);
+		double lastBid2;
+			if (getPenultimateBid(q) != null) {
+				lastBid2 = getPenultimateBid(q);
+			} else {
+				lastBid2 = lastBid;
+			}
 		
 		//get last bid on keyword
 		if (conversionRate < lowerBound) {
-			bid = Math.max(minBid, decreaseFactor * lastBid);
+			bid = Math.max(minBid, decreaseFactor * lastBid2);
 		} else if ((lowerBound <= conversionRate) && (conversionRate <= middleBound)) {
 			bid = Math.max(minBid, increaseFactor * lastBid);
 		} else {
@@ -391,6 +403,16 @@ public class AgentOrange extends Agent{
 		}
 		
 		return bid;
+	}
+	
+	private double getPenultimateBid(Query q) {
+		LinkedList<BidBundle> temp = ((LinkedList)((LinkedList)bidBundles).clone());
+		
+		//remove the last element, we dont care about it 
+		temp.removeLast();
+		
+		//return the last element, we do care about this
+		return ((BidBundle)((LinkedList)temp).removeLast()).getBid(q); 		//TODO: what if null?
 	}
 		
 	private double initialBids(R r) {  
