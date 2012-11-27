@@ -361,7 +361,7 @@ public class AgentOrange extends Agent{
 					
 					//if the item was our speciality, increase bid accordingly
 					if (r == R.HIT) {
-						bid = specialityParameter * lastBid;
+						bid = specialityParameter * lastSuccessfulBid(q);
 						
 					}
 				} else {
@@ -406,9 +406,9 @@ public class AgentOrange extends Agent{
 		if (conversionRate < lowerBound) {
 			bid = Math.max(minBid, decreaseFactor * lastBid2);
 		} else if ((lowerBound <= conversionRate) && (conversionRate <= middleBound)) {
-			bid = Math.max(minBid, increaseFactor * lastBid);
+			bid = Math.max(minBid, increaseFactor * lastSuccessfulBid(q));
 		} else {
-			bid = Math.max(minBid, maxIncreaseFactor * lastBid);
+			bid = Math.max(minBid, maxIncreaseFactor * lastSuccessfulBid(q));
 		}
 		System.out.println("The bid has been defined as: " + bid);
 		return bid;
@@ -429,6 +429,13 @@ public class AgentOrange extends Agent{
 		double bid = bb.getBid(q);
 		
 		return bid; 		//TODO: what if null?
+	}
+	
+	//retrieves the average cpc (aka what would have been the last successful bid)
+	private double lastSuccessfulBid(Query q) {
+		double lsb = ((QueryReport)((LinkedList)queryReports).getLast()).getCPC(q);
+		
+		return lsb;
 	}
 		
 	private double initialBids(R r) {  
