@@ -171,9 +171,17 @@ public class AgentOrange extends Agent{
           return (((QueryReport)(((LinkedList)queryReports).getLast())).getCost(query));
         }
       
+      private double getProfit(Query query)
+        {
+          return ((SalesReport)((LinkedList)salesReports).getLast()).getRevenue(query) - ((QueryReport)(((LinkedList)queryReports).getLast())).getCost(query);
+        }
       
+      private int getCapacity() 
+      	{
+      	  return advertiserInfo.getDistributionCapacity();
+      	}
       
-      private int getDay(Query query) 
+      private int getDay() 
       	{
       	  return ((LinkedList)queryReports).size();
       	}
@@ -200,18 +208,21 @@ public class AgentOrange extends Agent{
 
 	   		BidBundle bidBundle = new BidBundle();
 			String publisherAddress = advertiserInfo.getPublisherId();
+			double profit = 0;
+			double spendLimit = 0;
 				
 
-        System.out.println("AgentOrangeNEW: bankBalance = "+bankBalance);
-				// Spend whatever money we have plus an initial float
+        	System.out.println("AgentOrangeNEW: bankBalance = "+bankBalance);
+        
+		/*// Spend whatever money we have plus an initial float
 				double spendLimit = cap + bankBalance;
 				if (spendLimit < cap) {
 					spendLimit = cap;
           System.out.println("AgentOrange: Capping spendlimit as in debt");
 				}
 				System.out.println("AgentOrangeNEW: Spendlimit = "+spendLimit);
-
-				
+		*/
+		
 				for(Query query : querySpace) {
 					// The publisher will interpret a NaN bid as
 					// a request to persist the prior day's bid
@@ -291,13 +302,14 @@ public class AgentOrange extends Agent{
 					
 					// Set the daily updates to the ad campaigns for this query class
 					bidBundle.addQuery(query,  bid, ad);
+					profit = profit + getProfit(query);
 					
 				}
-    
 
+		    spendLimit = spendLimitManager(profit);
 	        // Set the daily updates to the campaign spend limit
 	        bidBundle.setCampaignDailySpendLimit(spendLimit);
-
+			System.out.println("(AgentOrange) Profit: " + profit + ". SpendLimit: " + spendLimit);
 	        // Send the bid bundle to the publisher
 	        if (publisherAddress != null) {
 	            sendMessage(publisherAddress, bidBundle);
@@ -308,6 +320,7 @@ public class AgentOrange extends Agent{
 	    }
 		
 		private double generateBid(R r, Query q) {
+			
 			//start with a ridiculous bid
 			double bid = 1.0;
 			double reserve = 0.0; //TODO	
@@ -322,7 +335,6 @@ public class AgentOrange extends Agent{
 			if(get(r, clicks) == 0 || get(r, values) == 0) {
 				// INITIALISATION VARIANT
 				// bid = sales_profit * mu
-				
 				bid = initialBids(r);
 			} else {
 				// bid = VPC * omega
@@ -465,6 +477,54 @@ public class AgentOrange extends Agent{
 		}
 		
 		return 1.25;
+	}
+	
+	private double spendLimitManager(double profit) {
+		
+		//default spendlimit
+		double spendlimit = 100;
+		//prevents dying
+		double spendbase = 100;
+		
+		if (profit < 0) {
+			
+			//stops setting spending limit to a negative value
+			spendbase = 100;
+		
+		} else { 
+		
+			spendbase = profit;
+		
+		}
+		
+		if (getDay() <= 5) {
+		
+			switch(getCapacity()) {
+			
+				case 300: spendlimit = 700; break;
+				case 450: spendlimit = 1000; break;
+				case 600: spendlimit = 1200; break;
+			
+			}
+		
+		} else {
+		
+			switch(getCapacity()) {
+			
+				case 300: spendlimit = 750; break;
+				case 450: spendlimit = Math.min(1150, spendbase); break;
+				case 600: spendlimit = Math.min(1350, spendbase); break;
+			
+			}
+		
+		}
+		
+		System.out.println("DAY: " + getDay());
+		System.out.println(getCapacity());
+		System.out.println(spendlimit);
+		
+		return spendlimit;
+		
 	}
 		
 		private boolean isManufacturerSpeciality(Query query) {
