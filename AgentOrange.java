@@ -457,26 +457,23 @@ public class AgentOrange extends Agent{
 		for(Query query : querySpace) {
 		
 			switch(r) {
-				case MISS:          bid = retailCatalog.getSalesProfit(new Product(query.getManufacturer(), query.getComponent())) * 1.15;
+				case MISS:          bid = 1.15;
 					break;
-				case MISSNEUTRAL:   bid = retailCatalog.getSalesProfit(new Product(query.getManufacturer(), query.getComponent())) * 0.65;
+				case MISSNEUTRAL:   bid = 0.65;
 					break;
-				case MISSHIT:       bid = retailCatalog.getSalesProfit(new Product(query.getManufacturer(), query.getComponent())) * 1.05;
+				case MISSHIT:       bid = 1.05;
 					break;
-				case NEUTRAL:       bid = retailCatalog.getSalesProfit(new Product(query.getManufacturer(), query.getComponent())) * 1.15;
+				case NEUTRAL:       bid = 1.15;
 					break;
-				case HITNEUTRAL:    bid = retailCatalog.getSalesProfit(new Product(query.getManufacturer(), query.getComponent())) * 1.15;
+				case HITNEUTRAL:    bid = 1.15;
 					break;
-				case HIT:           bid = retailCatalog.getSalesProfit(new Product(query.getManufacturer(), query.getComponent())) * 1.25;
+				case HIT:           bid = 1.25;
 					break;
 				default:            bid = 0;
 			}
 			
-			bid = 1.25;
-			
 		}
-		
-		return 1.25;
+		return bid;
 	}
 	
 	private double spendLimitManager(double profit) {
