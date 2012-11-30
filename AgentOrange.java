@@ -116,7 +116,7 @@ public class AgentOrange extends Agent{
         System.out.println("Agent Orange Reset");
         salesReports = new LinkedList<SalesReport>();
         queryReports = new LinkedList<QueryReport>();
-		bidBundles = new LinkedList<BidBundle>();
+        bidBundles = new LinkedList<BidBundle>();
         querySpace = new LinkedHashSet<Query>();
         generateEnumMap();
         clicks = new double[Result.size()];
@@ -475,7 +475,7 @@ public class AgentOrange extends Agent{
 		}
 		return bid;
 	}
-	
+		
 	private double spendLimitManager(double profit) {
 		
 		//default spendlimit
@@ -483,10 +483,10 @@ public class AgentOrange extends Agent{
 		//prevents dying
 		double spendbase = 100;
 		
-		if (profit < 0) {
+		if (profit < 700) {
 			
 			//stops setting spending limit to a negative value
-			spendbase = 100;
+			spendbase = 700;
 		
 		} else { 
 		
@@ -500,7 +500,7 @@ public class AgentOrange extends Agent{
 			
 				case 300: spendlimit = 700; break;
 				case 450: spendlimit = 1000; break;
-				case 600: spendlimit = 1200; break;
+				case 600: spendlimit = 1300; break;
 			
 			}
 		
@@ -508,9 +508,9 @@ public class AgentOrange extends Agent{
 		
 			switch(getCapacity()) {
 			
-				case 300: spendlimit = 750; break;
-				case 450: spendlimit = Math.min(1150, spendbase); break;
-				case 600: spendlimit = Math.min(1350, spendbase); break;
+				case 300: spendlimit = 750; break;//750
+				case 450: spendlimit = Math.min(1250, spendbase); break;//1150 min
+				case 600: spendlimit = Math.min(1500, spendbase); break;//1350 min
 			
 			}
 		
