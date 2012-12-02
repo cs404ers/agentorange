@@ -15,8 +15,9 @@ public class AgentOrange extends Agent{
     private enum R {MISS, MISSNEUTRAL, MISSHIT, NEUTRAL, HITNEUTRAL, HIT}
     private EnumMap Result = new EnumMap<R,Integer>(R.class);
 
-    private double[] clicks;
-    private double[] values;
+    private double[] clicks;	//clicks in game
+    private double[] values;	//values in game
+	private HashMap agentpositions;
     //private double moneyMade = 0;
     //private double moneySpent = 0;
     
@@ -118,6 +119,7 @@ public class AgentOrange extends Agent{
         queryReports = new LinkedList<QueryReport>();
         bidBundles = new LinkedList<BidBundle>();
         querySpace = new LinkedHashSet<Query>();
+        agentpositions = new HashMap();
         generateEnumMap();
         clicks = new double[Result.size()];
         values = new double[Result.size()];
@@ -196,10 +198,37 @@ public class AgentOrange extends Agent{
 		  return ( ((SalesReport) ( (LinkedList)salesReports ).getLast()).getRevenue(query) );
         }
       
+      private void printAdvertisers(Query query) 
+        {
+        
+        	Object[] obj = null;
+        	Double pos = 0.0;
+              			
+            obj = ((QueryReport) ( (LinkedList)queryReports ).getLast()).advertisers(query).toArray();
+        			            	
+            for (int i = 0; i < obj.length; i++) {
+            						
+				pos = ((QueryReport) ( (LinkedList)queryReports ).getLast()).getPosition(query, obj[i].toString());
+					
+            	if (pos.isNaN()) {
+					pos = 0.0;
+        		} 
+        		        		        		
+        		if (agentpositions.size()==0) {
+        			agentpositions.put(query.toString() + obj[i].toString(), pos);
+        			System.out.println(query.toString() + obj[i].toString() + " : " + pos);
+        		} else {
+        			agentpositions.put(query.toString() + obj[i].toString(), pos);
+        			System.out.println(query.toString() + obj[i].toString() + " " + pos);
+        		}
+        		
+        		System.out.println("*******");
+        	}
+        }
+        
 	    /**
 	     * Sends a constructed {@link BidBundle} from any updated bids, ads, or spend limits.
 	     */
-
 
 	    protected void sendBidAndAds() {
 	        
@@ -229,6 +258,8 @@ public class AgentOrange extends Agent{
 					double bid = 1;
 					// bid = [ calculated optimal bid ]
 					double bidMultiplier = 1;
+					
+					printAdvertisers(query);
 					
 					// Calculate Matching Category
 					if (isManufacturerSpeciality(query) && isComponentSpeciality(query))
@@ -309,7 +340,6 @@ public class AgentOrange extends Agent{
 		    spendLimit = spendLimitManager(profit);
 	        // Set the daily updates to the campaign spend limit
 	        bidBundle.setCampaignDailySpendLimit(spendLimit);
-			System.out.println("(AgentOrange) Profit: " + profit + ". SpendLimit: " + spendLimit);
 	        // Send the bid bundle to the publisher
 	        if (publisherAddress != null) {
 	            sendMessage(publisherAddress, bidBundle);
@@ -321,7 +351,6 @@ public class AgentOrange extends Agent{
 		
 		private double generateBid(R r, Query q) {
 			
-			//start with a ridiculous bid
 			double bid = 1.0;
 			double reserve = 0.0; //TODO	
 
@@ -342,17 +371,15 @@ public class AgentOrange extends Agent{
 				double revenue = ((SalesReport)((LinkedList)salesReports).getLast()).getRevenue(q); 
 				double lastBid = ((BidBundle)((LinkedList)bidBundles).getLast()).getBid(q);
 				double lastBid2;
+				
 				if (getPenultimateBid(q) != -1) {
 					lastBid2 = getPenultimateBid(q);
 				} else {
 					lastBid2 = lastBid;
 				}
 				
-				//last paid job
+				//last paid bid
 				double lastPaidBid; 
-				
-				
-				System.out.println("Revenue" + revenue);
 				
 				if (revenue != 0) {
 				
@@ -374,8 +401,8 @@ public class AgentOrange extends Agent{
 					//if the item was our speciality, increase bid accordingly
 					if (r == R.HIT) {
 						bid = specialityParameter * lastSuccessfulBid(q);
-						
 					}
+					
 				} else {
 					//if focus level is F2
 					if ((r == R.MISS) || (r == R.HIT)) {
@@ -407,6 +434,7 @@ public class AgentOrange extends Agent{
 		double maxIncreaseFactor = 1.2;
 		
 		double lastBid = ((BidBundle)((LinkedList)bidBundles).getLast()).getBid(q);
+		
 		double lastBid2;
 			if (getPenultimateBid(q) != -1) {
 				lastBid2 = getPenultimateBid(q);
@@ -446,7 +474,6 @@ public class AgentOrange extends Agent{
 	//retrieves the average cpc (aka what would have been the last successful bid)
 	private double lastSuccessfulBid(Query q) {
 		double lsb = ((QueryReport)((LinkedList)queryReports).getLast()).getCPC(q);
-		
 		return lsb;
 	}
 		
@@ -516,10 +543,7 @@ public class AgentOrange extends Agent{
 		
 		}
 		
-		System.out.println("DAY: " + getDay());
-		System.out.println(getCapacity());
-		System.out.println(spendlimit);
-		
+		System.out.println("DAY: " + getDay());		
 		return spendlimit;
 		
 	}
