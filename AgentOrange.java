@@ -157,6 +157,7 @@ public class AgentOrange extends Agent{
 	
 	/**
 	 *  Retrieves the associated cost of a query 
+	 *  @param query the query
 	 */	
 	private double getCost(Query query) {
          return (((QueryReport)(((LinkedList)queryReports).getLast())).getCost(query));
@@ -164,27 +165,46 @@ public class AgentOrange extends Agent{
 
 	/**
 	 *  Retrieves the associated profit of a query
+	 *  @param query the query
 	 */	
     private double getProfit(Query query) {
          return ((SalesReport)((LinkedList)salesReports).getLast()).getRevenue(query) - ((QueryReport)(((LinkedList)queryReports).getLast())).getCost(query);
     }
-      
+    
+	/**
+	 *  Retrieves the distribution capacity
+	 */
     private int getCapacity() {
       	 return advertiserInfo.getDistributionCapacity();
     }
       
+	/**
+	 *  Retrieves the day number
+	 */
     private int getDay() {
       	 return ((LinkedList)queryReports).size();
     }
-
+	
+	/**
+	 *  Retrieves the asociated number of clicks that a query received in the previous day
+	 *  @param query the query
+	 */
     private double getClicks(Query query) {
          return ( ((QueryReport) ( (LinkedList)queryReports ).getLast()).getClicks(query) );
-     }
-        
+    }
+    
+	/**
+	 *  Retrieves the asociated revenue a query generated for this agent in the previous day
+	 *  @param query the query
+	 */
     private double getValue(Query query) {
 		 return ( ((SalesReport) ( (LinkedList)salesReports ).getLast()).getRevenue(query) );
     }
-      
+    
+	/**
+	 *  Pretty printer that outputs the query report and then saves it to the agentpositions {@link HashTable}
+	 *  @param query the query
+	 */
     private void printAdvertisers(Query query) {
         
 		Object[] obj = null;
@@ -223,21 +243,10 @@ public class AgentOrange extends Agent{
 		BidBundle bidBundle = new BidBundle();
 		String publisherAddress = advertiserInfo.getPublisherId();
 		double profit = 0;
-		double spendLimit = 0;
-				
+		double spendLimit = 0;				
 
 		System.out.println("AgentOrangeNEW: bankBalance = "+bankBalance);
-		
-		/*// Spend whatever money we have plus an initial float
-				double spendLimit = cap + bankBalance;
-				if (spendLimit < cap) {
-					spendLimit = cap;
-		  System.out.println("AgentOrange: Capping spendlimit as in debt");
-				}
-				System.out.println("AgentOrangeNEW: Spendlimit = "+spendLimit);
-		*/
-		
-		
+			
 		// The publisher will interpret a NaN bid as
 		// a request to persist the prior day's bid
 		double bid = 1;
@@ -334,11 +343,14 @@ public class AgentOrange extends Agent{
 		}
 	}
 	
-	private double generateBid(R r, Query q) {
+	/**
+	 *  Generates a bid for a given query based on previous performance AND the profit potential potential of a query, as described in its paper
+	 *  @param query the query that the bid is to be generated for  
+	 */
+	private double generateBid(R r, Query q) {		
+		double bid = 1.0;					//initial bid, should not be needed 
 		
-		double bid = 1.0;
-		double reserve = 0.0; //TODO	
-
+		//parameters to increase and decrease bidding levels
 		double focusParameter = 0.8;
 		double specialityParameter = 1.3;
 		double minimumBidZero = 0.3;
@@ -346,17 +358,21 @@ public class AgentOrange extends Agent{
 		double parameterZero = 1.05;
 		double specialityParameterZero = 1.2;
 	
+		//set bid based on previous performance of the agent 
 		if(get(r, clicks) == 0 || get(r, values) == 0) {
-			// INITIALISATION VARIANT
 			// bid = sales_profit * mu
+			
+			//in the first two days there is not enough info to go by, so start with a different method
 			bid = initialBids(r);
 		} else {
-			// bid = VPC * omega
-			
+			// bid = VPC * omega	
+
+			//in this case we have enough information so generate a bid based on past performance
 			double revenue = ((SalesReport)((LinkedList)salesReports).getLast()).getRevenue(q); 
 			double lastBid = ((BidBundle)((LinkedList)bidBundles).getLast()).getBid(q);
 			double lastBid2;
 			
+			//get the bid from two days ago, account for any NPE which may occur
 			if (getPenultimateBid(q) != -1) {
 				lastBid2 = getPenultimateBid(q);
 			} else {
@@ -366,14 +382,12 @@ public class AgentOrange extends Agent{
 			//last paid bid
 			double lastPaidBid; 
 			
-			if (revenue != 0) {
-			
+			//determine today's bid based on yesterday's performance 
+			if (revenue != 0) {		//the last bid did not generate any revenue 	
 				//cr = click/conversion
 				double clicks = ((QueryReport)((LinkedList)queryReports).getLast()).getClicks(q);
 				double conversions = ((SalesReport)((LinkedList)salesReports).getLast()).getConversions(q);
 				double conversionRate = clicks/conversions;
-				
-				System.out.println("Conv Rate: " +conversionRate);
 
 				//get the new bid value 
 				bid = defineBid(conversionRate, q);
@@ -405,7 +419,7 @@ public class AgentOrange extends Agent{
 	}
 
 	/**
-	*	Returns a bid value 
+	*	Returns a raw bid value based on prior perfomance
 	**/
 	private double defineBid(double conversionRate, Query q) {
 		double bid = 0.0;
@@ -439,6 +453,9 @@ public class AgentOrange extends Agent{
 		return bid;
 	}
 	
+	/**
+	 *  Reurns the bid that this agent made two days ago 
+	 */
 	private double getPenultimateBid(Query q) {
 		LinkedList<BidBundle> temp = ((LinkedList)((LinkedList)bidBundles).clone());
 		
@@ -456,14 +473,18 @@ public class AgentOrange extends Agent{
 		return bid; 		//TODO: what if null?
 	}
 	
-	//retrieves the average cpc (aka what would have been the last successful bid)
+	/**
+	 *  Returns the average CPC (used to attempt to determine the last bid that won)
+	 */
 	private double lastSuccessfulBid(Query q) {
 		double lsb = ((QueryReport)((LinkedList)queryReports).getLast()).getCPC(q);
 		return lsb;
 	}
 		
+	/**
+	 *  Generates an initial bid, solely based on the type of query that is being made (profit potential)
+	 */
 	private double initialBids(R r) {  
-
 		double bid = 0.0;
 		
 		for(Query query : querySpace) {
@@ -487,7 +508,11 @@ public class AgentOrange extends Agent{
 		}
 		return bid;
 	}
-		
+	
+	/**
+	 *	Determines a spend limit based on the current manufacturer capacity and profit from the previous day
+	 *  @param profit the profit from the previous round 
+	 */
 	private double spendLimitManager(double profit) {
 		
 		//default spendlimit
@@ -495,52 +520,55 @@ public class AgentOrange extends Agent{
 		//prevents dying
 		double spendbase = 100;
 		
-		if (profit < 700) {
-			
+		if (profit < 700) {			
 			//stops setting spending limit to a negative value
-			spendbase = 700;
-		
-		} else { 
-		
-			spendbase = profit;
-		
+			spendbase = 700;		
+		} else { 		
+			spendbase = profit;		
 		}
 		
-		if (getDay() <= 5) {
-		
-			switch(getCapacity()) {
-			
+		if (getDay() <= 5) {			//spend based on capacity
+			switch(getCapacity()) {			
 				case 300: spendlimit = 700; break;
 				case 450: spendlimit = 1000; break;
 				case 600: spendlimit = 1300; break;
-			
 			}
 		
-		} else {
-		
-			switch(getCapacity()) {
-			
+		} else {						//we don't have enough money, spend more in the first few days 
+			switch(getCapacity()) {			
 				case 300: spendlimit = 750; break;//750
 				case 450: spendlimit = Math.min(1250, spendbase); break;//1150 min
 				case 600: spendlimit = Math.min(1500, spendbase); break;//1350 min
-			
 			}
 		
 		}
-		
-		System.out.println("DAY: " + getDay());		
+				
 		return spendlimit;
 		
 	}
 		
+	/**
+	 *  Determines whether a query is for our manufacturer speciality
+	 *  @param query the query
+	 */
 	private boolean isManufacturerSpeciality(Query query) {
 		return (query.getManufacturer() == null ? false : query.getManufacturer().equals(advertiserInfo.getManufacturerSpecialty()));
 	}
 	
+	/**
+	 *  Determines whether a query is for our component speciality
+	 *  @param query the query
+	 */
 	private boolean isComponentSpeciality(Query query) {
 		return (query.getComponent() == null ? false : query.getComponent().equals(advertiserInfo.getComponentSpecialty()));
 	}
 	
+	/**
+	 *  Adds clicks and values
+	 * 
+	 *  @param r query focus 
+	 *  @param query the query
+	 */
 	private void addClicksAndVals(R r, Query query) {
 		set(r, get(r, clicks) + getClicks(query), clicks);
 		set(r, get(r, values) + getValue(query), values);
