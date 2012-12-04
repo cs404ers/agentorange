@@ -111,7 +111,7 @@ public class AgentOrange extends Agent{
     
     protected Socket comms;
     
-   public AgentOrange() {
+    public AgentOrange() {
         System.out.println("Agent Orange Started");
 		
         salesReports = new LinkedList<SalesReport>();
@@ -253,83 +253,84 @@ public class AgentOrange extends Agent{
 		// bid = [ calculated optimal bid ]
 		double bidMultiplier = 1;
 		
-		printAdvertisers(query);
-		
-		// Calculate Matching Category
-		if (isManufacturerSpeciality(query) && isComponentSpeciality(query))
-		{
-			// HIT (zeta)
-			addClicksAndVals(R.HIT, query);
-			bid = generateBid(R.HIT, query);
-		}            
-		else if ( (isManufacturerSpeciality(query) && !isComponentSpeciality(query)) )
-		{
-			if (query.getComponent() != null) {
-				// MISS-HIT (gamma)
-				addClicksAndVals(R.MISSHIT, query);
-				bid = generateBid(R.MISSHIT, query);
-			} else {
-				// NEUTRAL-HIT (epsilon)
-				addClicksAndVals(R.HITNEUTRAL, query);
-				bid = generateBid(R.HITNEUTRAL, query);
-			}
-		}
-		else if ( (!isManufacturerSpeciality(query) && isComponentSpeciality(query)) )
-		{
-			if (query.getManufacturer() != null) {
-				// MISS-HIT (gamma)
-				addClicksAndVals(R.MISSHIT, query);
-				bid = generateBid(R.HITNEUTRAL, query);
-			} else {
-				// NEUTRAL-HIT (epsilon)
-				addClicksAndVals(R.HITNEUTRAL, query);
-				bid = generateBid(R.HITNEUTRAL, query);
-			}
-		} 
-		else if ((query.getManufacturer() == null) && (query.getComponent() == null))
-		{	
-			// NEUTRAL (delta)
-			addClicksAndVals(R.NEUTRAL, query);
-			bid = generateBid(R.NEUTRAL, query);
-		} 
-		else if (query.getManufacturer() == null || query.getComponent() == null)
-		{
-			// MISS-NEUTRAL (beta)
-			// One is null, not the other (therefore one neutral)
-			// and the speciality case has already been triggered (therefore one miss)
-			addClicksAndVals(R.MISSNEUTRAL, query);
-			bid = generateBid(R.MISSNEUTRAL, query);
-		}
-		else {
-			// MISS (alpha)
-			addClicksAndVals(R.MISS, query);
-			bid = generateBid(R.MISS, query);
-		}
-		
-		// Target the Advert Appropriately
-		Ad ad = new Ad();
-		switch (query.getType()) {
-			case FOCUS_LEVEL_ONE:
-				if (query.getManufacturer() == null)
-				{
-				  Product p = new Product(advertiserInfo.getManufacturerSpecialty(),query.getComponent());
-				  ad = new Ad(p);
+		for(Query query : querySpace) {
+			printAdvertisers(query);
+			
+			// Calculate Matching Category
+			if (isManufacturerSpeciality(query) && isComponentSpeciality(query))
+			{
+				// HIT (zeta)
+				addClicksAndVals(R.HIT, query);
+				bid = generateBid(R.HIT, query);
+			}            
+			else if ( (isManufacturerSpeciality(query) && !isComponentSpeciality(query)) )
+			{
+				if (query.getComponent() != null) {
+					// MISS-HIT (gamma)
+					addClicksAndVals(R.MISSHIT, query);
+					bid = generateBid(R.MISSHIT, query);
+				} else {
+					// NEUTRAL-HIT (epsilon)
+					addClicksAndVals(R.HITNEUTRAL, query);
+					bid = generateBid(R.HITNEUTRAL, query);
 				}
-				else
-				{
-				  Product p = new Product(query.getManufacturer(),advertiserInfo.getComponentSpecialty());
-				  ad = new Ad(p);
+			}
+			else if ( (!isManufacturerSpeciality(query) && isComponentSpeciality(query)) )
+			{
+				if (query.getManufacturer() != null) {
+					// MISS-HIT (gamma)
+					addClicksAndVals(R.MISSHIT, query);
+					bid = generateBid(R.HITNEUTRAL, query);
+				} else {
+					// NEUTRAL-HIT (epsilon)
+					addClicksAndVals(R.HITNEUTRAL, query);
+					bid = generateBid(R.HITNEUTRAL, query);
 				}
-			case FOCUS_LEVEL_TWO:
-				Product p = new Product(query.getManufacturer(),query.getComponent());
-				ad = new Ad(p);
+			} 
+			else if ((query.getManufacturer() == null) && (query.getComponent() == null))
+			{	
+				// NEUTRAL (delta)
+				addClicksAndVals(R.NEUTRAL, query);
+				bid = generateBid(R.NEUTRAL, query);
+			} 
+			else if (query.getManufacturer() == null || query.getComponent() == null)
+			{
+				// MISS-NEUTRAL (beta)
+				// One is null, not the other (therefore one neutral)
+				// and the speciality case has already been triggered (therefore one miss)
+				addClicksAndVals(R.MISSNEUTRAL, query);
+				bid = generateBid(R.MISSNEUTRAL, query);
+			}
+			else {
+				// MISS (alpha)
+				addClicksAndVals(R.MISS, query);
+				bid = generateBid(R.MISS, query);
+			}
+			
+			// Target the Advert Appropriately
+			Ad ad = new Ad();
+			switch (query.getType()) {
+				case FOCUS_LEVEL_ONE:
+					if (query.getManufacturer() == null)
+					{
+					  Product p = new Product(advertiserInfo.getManufacturerSpecialty(),query.getComponent());
+					  ad = new Ad(p);
+					}
+					else
+					{
+					  Product p = new Product(query.getManufacturer(),advertiserInfo.getComponentSpecialty());
+					  ad = new Ad(p);
+					}
+				case FOCUS_LEVEL_TWO:
+					Product p = new Product(query.getManufacturer(),query.getComponent());
+					ad = new Ad(p);
+			}
+			
+			// Set the daily updates to the ad campaigns for this query class
+			bidBundle.addQuery(query,  bid, ad);
+			profit = profit + getProfit(query);
+		
 		}
-		
-		// Set the daily updates to the ad campaigns for this query class
-		bidBundle.addQuery(query,  bid, ad);
-		profit = profit + getProfit(query);
-		
-	
 
 		spendLimit = spendLimitManager(profit);
 		// Set the daily updates to the campaign spend limit
