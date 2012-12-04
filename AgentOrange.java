@@ -329,7 +329,7 @@ public class AgentOrange extends Agent{
 		bidBundle.addQuery(query,  bid, ad);
 		profit = profit + getProfit(query);
 		
-	}
+	
 
 		spendLimit = spendLimitManager(profit);
 		// Set the daily updates to the campaign spend limit
@@ -342,6 +342,7 @@ public class AgentOrange extends Agent{
 			bidBundles.add(bidBundle);
 		}
 	}
+	
 	
 	/**
 	 *  Generates a bid for a given query based on previous performance AND the profit potential potential of a query, as described in its paper
